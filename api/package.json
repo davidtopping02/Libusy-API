@@ -1,0 +1,16 @@
+{
+  "name": "uod-occupancy-tracker-mysql-api",
+  "version": "1.0.0",
+  "description": "rest api for the mySQL db storing occupancy data for the UoD library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "David Topping",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.9.1"
+  }
+}
