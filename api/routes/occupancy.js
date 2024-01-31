@@ -4,7 +4,7 @@ const router = express.Router();
 const occupancyData = require('../services/occupancy');
 
 /* GET occupancyData */
-router.get('/section', async function (req, res, next) {
+router.get('/sections', async function (req, res, next) {
     try {
         const sectionId = req.query.id;
         if (!sectionId) {
