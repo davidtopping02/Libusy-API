@@ -3,7 +3,9 @@ const app = express();
 const port = 3000;
 
 // router modules
-const sensorssRouter = require("./routes/sensors");
+const sensorsRouter = require("./routes/sensors");
+const occupancyDataRouter = require("./routes/occupancy");
+
 
 // middleware for parsing JSON and URL-encoded data
 app.use(express.json());
@@ -15,7 +17,8 @@ app.get("/", (req, res) => {
 });
 
 // Using the "sensorssRouter" for routes starting with "/sensors"
-app.use("/sensors", sensorssRouter);
+app.use("/sensors", sensorsRouter);
+app.use("/occupancy-data", occupancyDataRouter);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
