@@ -4,7 +4,7 @@ const { log, ExpressAPILogMiddleware } = require('@rama41222/node-logger');
 const config = {
     name: 'uod-library-occupancy-api',
     port: 3000,
-    host: '10.8.0.1'
+    host: '0.0.0.0'
 }
 
 const app = express();
