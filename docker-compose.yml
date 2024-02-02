@@ -1,7 +1,7 @@
 version: '3'
 services:
   api:
-    image: UoD-Occupancy-Tracker-API
+    image: uod-occupancy-tracker-api
     build: .
     networks:
       - backend
@@ -9,7 +9,7 @@ services:
       - "3000:3000"
 
   web-cli:
-    image: UoD-Occupancy-Tracker-API
+    image: uod-occupancy-tracker-api
     networks:
       - backend
     command: sh
