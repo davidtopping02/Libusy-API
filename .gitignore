@@ -30,3 +30,4 @@
 # Editor-specific files (e.g. Visual Studio Code)
 # **/.vscode/
 # **/.idea/
+**/log

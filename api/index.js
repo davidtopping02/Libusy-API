@@ -1,6 +1,14 @@
 const express = require("express");
+const { log, ExpressAPILogMiddleware } = require('@rama41222/node-logger');
+
+const config = {
+    name: 'uod-library-occupancy-api',
+    port: 3000,
+    host: '0.0.0.0'
+}
+
 const app = express();
-const port = 3000;
+const logger = log({ console: true, file: false, label: config.name });
 
 
 // middleware for parsing JSON and URL-encoded data
@@ -26,6 +34,9 @@ const occupancyDataRouter = require("./routes/occupancy.route");
 app.use("/occupancy", occupancyDataRouter);
 
 // Listening on the specified port
-app.listen(port, () => {
-    console.log(`listening at http://localhost:${port}`);
+app.listen(config.port, config.host, (e) => {
+    if (e) {
+        throw new Error('Internal server error')
+    }
+    logger.info(`${config.name} running on ${config.host}:${config.port}`);
 });
