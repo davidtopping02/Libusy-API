@@ -2,33 +2,30 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-// router modules
-const sensorsRouter = require("./routes/sensors");
-const occupancyDataRouter = require("./routes/occupancy");
-
 
 // middleware for parsing JSON and URL-encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Route for the root path "/"
-app.get("/", (req, res) => {
-    res.json({ message: "welcome to the UoD Library Occupancy API" });
-});
-
-// Using the "sensorssRouter" for routes starting with "/sensors"
-app.use("/sensors", sensorsRouter);
-app.use("/occupancy-data", occupancyDataRouter);
-
 // Error handling middleware
 app.use((err, req, res, next) => {
-    const statusCode = err.statusCode || 500; // Default status code is 500
-    console.error(err.message, err.stack); // Logging the error details
-    res.status(statusCode).json({ message: err.message }); // Sending an error response
+    const statusCode = err.statusCode || 500;
+    console.error(err.message, err.stack);
+    res.status(statusCode).json({ message: err.message });
     return;
 });
 
+/* Import and use router modules */
+const defaultRouter = require("./routes/index.route");
+app.use("/", defaultRouter);
+
+const sensorsRouter = require("./routes/sensors.route");
+app.use("/sensors", sensorsRouter);
+
+const occupancyDataRouter = require("./routes/occupancy.route");
+app.use("/occupancy", occupancyDataRouter);
+
 // Listening on the specified port
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+    console.log(`listening at http://localhost:${port}`);
 });

@@ -1,6 +1,4 @@
-function getOffset(currentPage = 1, listPerPage) {
-    return (currentPage - 1) * [listPerPage];
-}
+const { validationResult } = require('express-validator');
 
 function emptyOrRows(rows) {
     if (!rows) {
@@ -9,7 +7,16 @@ function emptyOrRows(rows) {
     return rows;
 }
 
+const validate = (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+    next();
+};
+
+
 module.exports = {
-    getOffset,
-    emptyOrRows
+    emptyOrRows,
+    validate
 }
