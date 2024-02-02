@@ -8,6 +8,9 @@ services:
     ports:
       - "3000:3000"
 
+    volumes:
+      - api/.:/usr/src/app
+
   web-cli:
     image: uod-occupancy-tracker-api
     networks:
