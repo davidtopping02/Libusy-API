@@ -8,7 +8,6 @@ services:
       - backend
     ports:
       - "3000:3000"
-
     volumes:
       - ./api:/usr/src/app
       - /usr/src/app/node_modules
@@ -19,6 +18,23 @@ services:
       - backend
     command: sh
 
+  mysql:
+    image: mysql
+    networks:
+      - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=u0Dl1brary_
+      - MYSQL_DATABASE=uodLibraryOccupancy
+    volumes:
+      - occupancy-tracker-mysql-data:/var/lib/mysql
+    ports:
+      # remove this for prod
+      - "3307:3306"
+
 networks:
   backend:
     driver: bridge
+
+volumes:
+  occupancy-tracker-mysql-data:
+    external: true
