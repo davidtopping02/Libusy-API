@@ -1,11 +1,11 @@
 const config = {
     db: {
         /* don't expose password or any sensitive info, done only for demo */
-        host: "10.8.0.1",
-        user: "react",
+        host: "mysql",
+        user: "api_user",
         password: "password",
         database: "uodLibraryOccupancy",
-        port: 3307,
+        port: 3306,
         connectTimeout: 60000
     },
     listPerPage: 10,
