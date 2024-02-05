@@ -11,12 +11,14 @@ services:
     volumes:
       - ./api:/usr/src/app
       - /usr/src/app/node_modules
+    container_name: uod-lib-occupancy-api
 
   web-cli:
     image: uod-occupancy-tracker-api
     networks:
       - backend
     command: sh
+    container_name: web-cli-container
 
   mysql:
     image: mysql
@@ -30,6 +32,7 @@ services:
     ports:
       # remove this for prod
       - "3307:3306"
+    container_name: uod-lib-occupancy-mysql
 
 networks:
   backend:
