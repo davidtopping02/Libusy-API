@@ -31,3 +31,5 @@
 # **/.vscode/
 # **/.idea/
 **/log
+
+/api/config.js
