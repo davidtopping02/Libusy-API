@@ -68,16 +68,19 @@ async function getOccupancyDataBySection(section_id) {
 }
 
 async function addOccupancyData(sensor_id, timestamp, occupancy_count) {
-    const rows = await db.query(
+    const result = await db.query(
         `INSERT INTO occupancyData (sensor_id, timestamp, occupancy_count)
          VALUES (?, ?, ?);`,
         [sensor_id, timestamp, occupancy_count]
     );
-    const data = helper.emptyOrRows(rows);
 
-    return {
-        data,
+    let message = { Error: "Error adding occupancy data" }
+
+    if (result.affectedRows) {
+        message = { Success: "Succesfuly added occupancy data" }
     }
+
+    return message;
 }
 
 module.exports = {

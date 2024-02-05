@@ -54,8 +54,6 @@ router.post('/add', [
         next(err);
     }
 
-    // return res.status(200).json({ message: 'Occupancy data successfully inserted.' });
-
 });
 
 module.exports = router;
