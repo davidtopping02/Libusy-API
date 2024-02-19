@@ -1,7 +1,7 @@
 ---
 name: Story Template
 about: This is a default template used for user stories
-title: 'API: default title'
+title: 'Pi-Controller: default title'
 labels: ''
 assignees: davidtopping02
 
