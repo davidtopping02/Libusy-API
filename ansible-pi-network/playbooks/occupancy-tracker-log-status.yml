@@ -1,0 +1,56 @@
+---
+- name: Search logs for errors and get last sensor start time and last scan time
+  hosts: all
+  become: yes
+  gather_facts: no
+
+  tasks:
+    - name: Get current date in the desired format (YYYY-MM-DD)
+      shell: date +%Y-%m-%d
+      register: current_date
+      changed_when: false
+
+    - name: Define log file path with the current date
+      set_fact:
+        log_file_path: "/home/pi/UOD-Occupancy-Sensor/logs/{{ current_date.stdout }}.log"
+
+    - name: Check if the log file exists
+      stat:
+        path: "{{ log_file_path }}"
+      register: log_file_stat
+
+    - name: Read the log file and find errors
+      when: log_file_stat.stat.exists
+      shell: grep 'ERROR:' "{{ log_file_path }}"
+      register: error_entries
+      changed_when: false
+      failed_when: false
+
+    - name: Extract last sensor start time
+      when: log_file_stat.stat.exists
+      shell: grep 'INFO:' "{{ log_file_path }}" | grep 'START SENSOR' | tail -n 1
+      register: last_start_time
+      changed_when: false
+      failed_when: false
+
+    - name: Extract last scan time
+      when: log_file_stat.stat.exists
+      shell: grep 'INFO:' "{{ log_file_path }}" | grep 'Starting scan on wlan1mon for' | tail -n 1
+      register: last_scan_time
+      changed_when: false
+      failed_when: false
+
+    - name: Print error entries
+      debug:
+        msg: "Error Entries:\n{{ error_entries.stdout_lines | join('\n') }}"
+      when: error_entries.stdout_lines | length > 0
+
+    - name: Print last sensor start time
+      debug:
+        msg: "Last Sensor Start Time: {{ last_start_time.stdout }}"
+      when: last_start_time.stdout_lines | length > 0
+
+    - name: Print last scan time
+      debug:
+        msg: "Last Scan Time: {{ last_scan_time.stdout }}"
+      when: last_scan_time.stdout_lines | length > 0

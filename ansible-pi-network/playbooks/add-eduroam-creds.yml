@@ -1,0 +1,30 @@
+---
+- name: Update wpa_supplicant.conf
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Update wpa_supplicant.conf
+      copy:
+        content: |
+          #ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+          update_config=1
+          country=GB
+
+          network={
+              ssid="G2.1"
+              psk="axGUM63HfPmrQY"
+          }
+
+          network={
+              ssid="eduroam"
+              scan_ssid=1
+              key_mgmt=WPA-EAP
+              eap=PEAP
+              identity="Lib-Pi@dundee.ac.uk"
+              anonymous_identity="anonymous@dundee.ac.uk"
+              password="fxv_H6-5MXeQtK@"
+              phase1="peaplabel=0"
+              phase2="auth=MSCHAPV2"
+          }
+        dest: /etc/wpa_supplicant/wpa_supplicant.conf

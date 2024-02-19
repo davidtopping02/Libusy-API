@@ -1,0 +1,26 @@
+---
+- name: Check Host Availability and Gather System Stats
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Check if host is reachable
+      ping:
+      register: ping_result
+      ignore_errors: yes
+
+    - name: Gather network information
+      setup:
+        filter: "ansible_interfaces*"
+      when: ping_result is succeeded
+
+    - name: Display host status
+      debug:
+        msg: "Host {{ inventory_hostname }} is alive."
+      when: ping_result is succeeded
+
+    - name: Display network information
+      debug:
+        var: ansible_interfaces
+      when: ping_result is succeeded
+

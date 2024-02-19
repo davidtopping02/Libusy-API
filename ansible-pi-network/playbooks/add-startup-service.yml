@@ -1,0 +1,49 @@
+---
+- name: Remove old service unit file
+  hosts: all
+  become: yes
+  tasks:
+    - name: Delete old service unit file
+      file:
+        path: /etc/systemd/system/enable-monitoring-mode.service
+        state: absent
+
+- name: Create new service
+  hosts: all
+  become: yes
+  tasks:
+    - name: Create new service unit file
+      copy:
+        content: |
+          [Unit]
+          Description=Enables monitoring mode and runs main.py in the background
+          Wants=network-online.target
+          After=network-online.target
+
+          [Service]
+          Type=forking
+          ExecStart=/home/pi/UOD-Occupancy-Sensor/scripts/enable-monitoring-mode.sh
+          ExecStartPost=/home/pi/UOD-Occupancy-Sensor/scripts/start-sensor.sh
+
+          [Install]
+          WantedBy=multi-user.target
+        dest: /etc/systemd/system/start-sensor-script.service
+        mode: '0644'
+
+- name: Reload systemd
+  hosts: all
+  become: yes
+  tasks:
+    - name: Reload systemd
+      systemd:
+        daemon_reload: yes
+
+- name: Enable and start the new service
+  hosts: all
+  become: yes
+  tasks:
+    - name: Enable and start the new service
+      systemd:
+        name: start-sensor-script
+        state: started
+        enabled: yes

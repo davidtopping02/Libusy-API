@@ -9,7 +9,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./api:/usr/src/app
+      - ./src:/usr/src/app
       - /usr/src/app/node_modules
     container_name: uod-lib-occupancy-api
 

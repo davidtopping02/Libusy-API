@@ -1,0 +1,37 @@
+- name: Clone or Pull Sensor Repository via SSH
+  hosts: all
+  become: no
+  tasks:
+    - name: Accept GitHub SSH key
+      known_hosts:
+        name: "github.com"
+        key: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
+        state: present
+
+    - name: Check if the repository directory exists
+      stat:
+        path: "/home/pi/UOD-Occupancy-Sensor"
+      register: repo_dir
+
+    - name: Clone the repository if it doesn't exist
+      git:
+        repo: 'git@github.com:davidtopping02/UOD-Occupancy-Sensor.git'
+        dest: "/home/pi/UOD-Occupancy-Sensor"
+        version: main
+        key_file: '/home/pi/.ssh/id_rsa'
+        update: no
+        clone: yes
+      when: not repo_dir.stat.exists
+
+    - name: Reset local repository to match remote
+      command: git -C /home/pi/UOD-Occupancy-Sensor reset --hard
+      when: repo_dir.stat.exists
+
+    - name: Pull updates using SSH if the repository exists
+      git:
+        repo: 'git@github.com:davidtopping02/UOD-Occupancy-Sensor.git'
+        dest: "/home/pi/UOD-Occupancy-Sensor"
+        version: main
+        key_file: '/home/pi/.ssh/id_rsa'
+        update: yes
+      when: repo_dir.stat.exists

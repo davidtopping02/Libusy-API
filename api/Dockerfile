@@ -5,13 +5,13 @@ FROM node:14
 WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json if available
-COPY api/package*.json ./
+COPY src/package*.json ./
 
 # Install any needed packages specified in package.json
 RUN npm install
 
 # Bundle app source inside the Docker image
-COPY api/ .
+COPY src/ .
 
 # Your app binds to port 3000, make the port available outside the container
 EXPOSE 3000
