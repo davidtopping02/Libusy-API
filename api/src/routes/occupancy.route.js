@@ -41,13 +41,12 @@ router.post('/add', [
         }
         return true; // Validation passed if the sensor exists
     }),
-    body('timestamp').isISO8601().withMessage('timestamp must be a valid ISO8601 date'),
     body('occupancy_count').isInt().withMessage('occupancy_count must be an integer'),
 ], helper.validate, async (req, res, next) => {
 
     try {
-        const { sensor_id, timestamp, occupancy_count } = req.body;
-        const data = await occupancyData.addOccupancyData(sensor_id, timestamp, occupancy_count)
+        const { sensor_id, occupancy_count } = req.body;
+        const data = await occupancyData.addOccupancyData(sensor_id, occupancy_count)
         res.json(data);
     } catch (err) {
         console.error(`Error while adding occupancy data`, err.message);
