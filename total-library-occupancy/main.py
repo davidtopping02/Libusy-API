@@ -9,8 +9,8 @@ def main():
     username = 'dtopping'
     password = 'UO33mUx3zEKb%S8b'
 
-    api_url = 'http://10.8.0.1:3000'
-    # api_url = 'http://uod-lib-occupancy-raspberry-pi-controller-api:3000'
+    # api_url = 'http://10.8.0.1:3000'
+    api_url = 'http://uod-lib-occupancy-raspberry-pi-controller-api:3000'
 
     api = LibraryGateAPI(username, password, api_url)
 
