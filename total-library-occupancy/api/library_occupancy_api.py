@@ -1,4 +1,5 @@
 import requests
+import logging
 
 
 class LibraryOccupancyAPI:
@@ -6,19 +7,20 @@ class LibraryOccupancyAPI:
         self.api_url = api_url
 
     def get_total_occupancy(self):
-        response = requests.get(f"{self.api_url}/occupancy/sections/2")
+        response = requests.get(f"{self.api_url}/occupancy/sections/1")
         if response.status_code == 200:
             data = response.json().get('data', [])
 
             if data:
                 section = data[0]
                 current_occupancy = section.get('current_occupancy', 0)
+                logging.info("Total occupancy fetched successfully.")
                 return current_occupancy
             else:
-                print("No data found in the response.")
+                logging.warning("No data found in the response.")
                 return 0
         else:
-            print("Failed to fetch total occupancy from API.")
+            logging.error("Failed to fetch total occupancy from API.")
             return 0
 
     def update_total_occupancy(self, total_occupancy):
@@ -29,4 +31,8 @@ class LibraryOccupancyAPI:
         response = requests.post(
             f"{self.api_url}/occupancy/add", json=payload)
         if response.status_code != 200:
-            print("Failed to update total occupancy to API.")
+            logging.error("Failed to update total occupancy to API.")
+
+    def get_total_base(self):
+        # TODO:  need to implement API end point first
+        return 0
