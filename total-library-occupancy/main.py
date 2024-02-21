@@ -18,8 +18,25 @@ class TotalOccupancyManager:
         if not os.path.exists(log_directory):
             os.makedirs(log_directory)
         log_file = os.path.join(log_directory, f'{current_date}.log')
-        logging.basicConfig(level=logging.INFO, filename=log_file,
-                            filemode='a', format='%(levelname)s:[%(asctime)s]:%(name)s: %(message)s')
+
+        # Create a logger
+        logger = logging.getLogger()
+        logger.setLevel(logging.INFO)
+
+        file_handler = logging.FileHandler(log_file)
+        file_handler.setLevel(logging.INFO)
+
+        console_handler = logging.StreamHandler()
+        console_handler.setLevel(logging.INFO)
+
+        # Create formatter and set it for the handlers
+        formatter = logging.Formatter(
+            '%(levelname)s:[%(asctime)s]:%(name)s: %(message)s')
+        file_handler.setFormatter(formatter)
+        console_handler.setFormatter(formatter)
+
+        logger.addHandler(file_handler)
+        logger.addHandler(console_handler)
 
     def total_occupancy_calibration(self):
         self.api.update_total_occupancy(self.api.get_total_base())
