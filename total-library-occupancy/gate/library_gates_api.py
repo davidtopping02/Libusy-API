@@ -47,24 +47,23 @@ class LibraryGateAPI:
         new_occupancy = current_occupancy + net_change
         self.occupancy_api.update_total_occupancy(new_occupancy)
 
+    def run_periodically(self, interval_minutes):
+        while True:
+            # Fetch data from the library gates
+            data = self.fetch_data()
 
-def run_periodically(self, interval_minutes):
-    while True:
-        # Fetch data from the library gates
-        data = self.fetch_data()
+            if data:
+                # Parse the response data to calculate net change in occupancy
+                net_change = self.parse_response(data)
 
-        if data:
-            # Parse the response data to calculate net change in occupancy
-            net_change = self.parse_response(data)
+                # Update the total occupancy using the calculated net change
+                self.update_total_occupancy(net_change)
 
-            # Update the total occupancy using the calculated net change
-            self.update_total_occupancy(net_change)
+                # TODO: log this
+                print(f"Total occupancy updated. Net change: {net_change}")
 
             # TODO: log this
-            print(f"Total occupancy updated. Net change: {net_change}")
+            print(
+                f"Waiting for {interval_minutes} minutes before the next request...")
 
-        # TODO: log this
-        print(
-            f"Waiting for {interval_minutes} minutes before the next request...")
-
-        time.sleep(interval_minutes * 60)
+            time.sleep(interval_minutes * 60)
