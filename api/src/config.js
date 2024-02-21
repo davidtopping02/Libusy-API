@@ -1,6 +1,6 @@
 const config = {
     db: {
-        host: "10.8.0.1",
+        host: "uod-lib-occupancy-mysql",
         user: "expressApi",
         password: "9$Jp#Ku@5zYv",
         database: "uodLibraryOccupancy",
