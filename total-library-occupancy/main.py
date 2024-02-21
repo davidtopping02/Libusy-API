@@ -4,8 +4,6 @@ from gate.library_gates_api import LibraryGateAPI
 
 def main():
 
-    time.sleep(10)
-
     # lib gates API credentials and URL
     username = 'dtopping'
     password = 'UO33mUx3zEKb%S8b'
