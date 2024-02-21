@@ -1,15 +1,14 @@
 version: '3'
 services:
   api:
-    image: uod-occupancy-tracker-api
+    build: ./api/
     restart: always
-    build: .
     networks:
       - backend
     ports:
       - "3000:3000"
     volumes:
-      - ./src:/usr/src/app
+      - ./api/src:/usr/src/app
       - /usr/src/app/node_modules
     container_name: uod-lib-occupancy-api
 
@@ -19,6 +18,13 @@ services:
       - backend
     command: sh
     container_name: web-cli-container
+
+  total-occupancy:
+    build: ./total-library-occupancy
+    restart: always
+    networks:
+      - backend
+    container_name: uod-lib-total-occupancy
 
   mysql:
     image: mysql
@@ -30,8 +36,7 @@ services:
     volumes:
       - occupancy-tracker-mysql-data:/var/lib/mysql
     ports:
-      # remove this for prod
-      - "3307:3306"
+      - "3307:3306" # remove this for prod
     container_name: uod-lib-occupancy-mysql
 
 networks:
