@@ -74,7 +74,7 @@ def main():
     api_url = 'http://10.8.0.1:3000'
     # For Docker use: api_url = 'http://uod-lib-occupancy-api:3000'
     manager = TotalOccupancyManager(
-        api_url, username, password, interval_minutes=0.5)
+        api_url, username, password, interval_minutes=10)
     manager.run_periodically()
 
 
