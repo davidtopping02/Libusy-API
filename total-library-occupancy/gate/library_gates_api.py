@@ -79,6 +79,7 @@ class LibraryGateAPI:
 
     def run_periodically(self, interval_minutes):
         last_executed_calibration_logic = None
+        time.sleep(10)
 
         while True:
             current_time = datetime.now()
