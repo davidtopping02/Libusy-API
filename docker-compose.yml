@@ -3,6 +3,8 @@ services:
   api:
     build: ./api/
     restart: always
+    depends_on:
+      - mysql
     networks:
       - backend
     ports:
@@ -22,6 +24,8 @@ services:
   total-occupancy:
     build: ./total-library-occupancy
     restart: always
+    depends_on:
+      - api
     networks:
       - backend
     container_name: uod-lib-total-occupancy
