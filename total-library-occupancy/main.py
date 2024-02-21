@@ -1,4 +1,4 @@
-
+import time
 from gate.library_gates_api import LibraryGateAPI
 
 
@@ -17,4 +17,5 @@ def main():
 
 
 if __name__ == "__main__":
+    time.sleep(10)
     main()
