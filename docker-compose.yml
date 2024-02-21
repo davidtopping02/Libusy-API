@@ -28,7 +28,7 @@ services:
       - backend
     container_name: uod-lib-total-occupancy
     volumes:
-      - ./total-occupancy/data:/app/data
+      - ./total-library-occupancy/:/usr/src/app
 
   mysql:
     image: mysql
