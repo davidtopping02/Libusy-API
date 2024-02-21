@@ -1,9 +1,10 @@
+import time
 from gate.library_gates_api import LibraryGateAPI
 
 
 def main():
 
-    # TODO: configure logging
+    time.sleep(10)
 
     # lib gates API credentials and URL
     username = 'dtopping'
@@ -16,15 +17,7 @@ def main():
 
     api.run_periodically(interval_minutes=20)
 
-    # try:
-    #     api.run_periodically(interval_minutes=20)
-    # except KeyboardInterrupt:
-    #     # TODO: log the keyboard interupt
-    #     pass
-    # except Exception as e:
-    #     # TODO: log the error
-    #     pass
-
 
 if __name__ == "__main__":
+    #
     main()
