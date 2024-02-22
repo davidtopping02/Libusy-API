@@ -11,4 +11,4 @@ COPY ./src ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Run main.py when the container launches
-CMD ["python3", "./main.py"]
+CMD ["python3", "main.py"]
