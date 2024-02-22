@@ -14,7 +14,7 @@ RUN npm install
 COPY src/ .
 
 # Your app binds to port 443 , make the port available outside the container
-EXPOSE 443 
+EXPOSE 80 
 
 # Define the command to run your app
 CMD ["npm", "run", "dev"]
