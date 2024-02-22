@@ -7,11 +7,13 @@ class LibraryOccupancyAPI:
         self.api_url = api_url
 
     def get_total_occupancy(self):
+        # fetch total occupancy from the API
         response = requests.get(f"{self.api_url}/occupancy/sections/1")
         if response.status_code == 200:
             data = response.json().get('data', [])
 
             if data:
+                # extract current occupancy data from the response
                 section = data[0]
                 current_occupancy = section.get('current_occupancy', 0)
                 logging.info("Total occupancy fetched successfully.")
@@ -24,6 +26,7 @@ class LibraryOccupancyAPI:
             return 0
 
     def update_total_occupancy(self, total_occupancy):
+        # Update total occupancy to the API
         payload = {
             'sensor_id': "gate",
             'occupancy_count': total_occupancy}
@@ -34,5 +37,5 @@ class LibraryOccupancyAPI:
             logging.error("Failed to update total occupancy to API.")
 
     def get_total_base(self):
-        # TODO:  need to implement API end point first
+        # TODO: Implement API endpoint to fetch total base occupancy
         return 0
