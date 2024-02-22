@@ -47,10 +47,10 @@ def main():
     password = 'UO33mUx3zEKb%S8b'
 
     # IP address might be for local network access
-    # api_url = 'http://10.8.0.1:3000'
+    # api_url = 'http://10.8.0.1:80'
 
     # For Docker use
-    api_url = 'http://uod-lib-occupancy-api:3000'
+    api_url = 'http://uod-lib-occupancy-api:80'
 
     manager = TotalOccupancyManager(api_url, username, password)
     manager.run_periodically()
