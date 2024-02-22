@@ -3,7 +3,7 @@ const { log, ExpressAPILogMiddleware } = require('@rama41222/node-logger');
 
 const config = {
     name: 'uod-library-occupancy-api',
-    port: 3000,
+    port: 80,
     host: '0.0.0.0'
 }
 
@@ -27,9 +27,6 @@ app.use((err, req, res, next) => {
 const defaultRouter = require("./routes/index.route");
 app.use("/", defaultRouter);
 
-const sensorsRouter = require("./routes/sensors.route");
-app.use("/sensors", sensorsRouter);
-
 const occupancyDataRouter = require("./routes/occupancy.route");
 app.use("/occupancy", occupancyDataRouter);
 
@@ -38,5 +35,5 @@ app.listen(config.port, config.host, (e) => {
     if (e) {
         throw new Error('Internal server error')
     }
-    logger.info(`${config.name} running on ${config.host}:${config.port}`);
+    console.log(`${config.name} running on ${config.host}:${config.port}`);
 });

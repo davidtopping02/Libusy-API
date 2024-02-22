@@ -1,10 +1,10 @@
 const config = {
     db: {
-        host: "uod-lib-occupancy-mysql",
+        host: "10.8.0.1",
         user: "expressApi",
         password: "9$Jp#Ku@5zYv",
         database: "uodLibraryOccupancy",
-        port: 3306,
+        port: 3307,
         connectTimeout: 60000
     },
     listPerPage: 10,

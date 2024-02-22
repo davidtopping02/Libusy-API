@@ -8,7 +8,7 @@ services:
     networks:
       - backend
     ports:
-      - "3000:3000"
+      - "80:80"
     volumes:
       - ./api/src:/usr/src/app
       - /usr/src/app/node_modules
