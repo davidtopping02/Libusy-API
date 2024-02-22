@@ -3,7 +3,7 @@ const { log, ExpressAPILogMiddleware } = require('@rama41222/node-logger');
 
 const config = {
     name: 'uod-library-occupancy-api',
-    port: 3000,
+    port: 443,
     host: '0.0.0.0'
 }
 
@@ -38,5 +38,5 @@ app.listen(config.port, config.host, (e) => {
     if (e) {
         throw new Error('Internal server error')
     }
-    logger.info(`${config.name} running on ${config.host}:${config.port}`);
+    console.log(`${config.name} running on ${config.host}:${config.port}`);
 });
