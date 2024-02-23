@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors'); // Include the cors package
 const { log, ExpressAPILogMiddleware } = require('@rama41222/node-logger');
 
 const config = {
@@ -10,6 +11,20 @@ const config = {
 const app = express();
 const logger = log({ console: true, file: false, label: config.name });
 
+// Define allowed origins
+const allowedOrigins = ['http://192.168.56.1:4200', 'http://10.8.0.2:4200', 'https://www.uod.davidtopping.dev'];
+
+// CORS middleware configuration
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin) return callback(null, true); // Allow requests with no origin
+        if (allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+}));
 
 // middleware for parsing JSON and URL-encoded data
 app.use(express.json());
@@ -33,7 +48,7 @@ app.use("/occupancy", occupancyDataRouter);
 // Listening on the specified port
 app.listen(config.port, config.host, (e) => {
     if (e) {
-        throw new Error('Internal server error')
+        throw new Error('Internal server error');
     }
     console.log(`${config.name} running on ${config.host}:${config.port}`);
 });
