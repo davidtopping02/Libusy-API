@@ -12,7 +12,7 @@ const app = express();
 const logger = log({ console: true, file: false, label: config.name });
 
 // Define allowed origins
-const allowedOrigins = ['http://192.168.56.1:4200', 'http://10.8.0.2:4200', 'https://www.uod.davidtopping.dev'];
+const allowedOrigins = ['http://192.168.56.1:4200', 'http://10.8.0.2:4200', 'https://www.uod.davidtopping.dev', 'http://localhost:4200'];
 
 // CORS middleware configuration
 app.use(cors({
