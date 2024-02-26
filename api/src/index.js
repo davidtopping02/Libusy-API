@@ -1,6 +1,5 @@
 const express = require("express");
-const cors = require('cors'); // Include the cors package
-const { log, ExpressAPILogMiddleware } = require('@rama41222/node-logger');
+const cors = require('cors');
 
 const config = {
     name: 'uod-library-occupancy-api',
@@ -9,10 +8,9 @@ const config = {
 }
 
 const app = express();
-const logger = log({ console: true, file: false, label: config.name });
 
 // Define allowed origins
-const allowedOrigins = ['http://192.168.56.1:4200', 'http://10.8.0.2:4200', 'https://www.uod.davidtopping.dev', 'http://localhost:4200'];
+const allowedOrigins = ['', 'https://www.uod.davidtopping.dev', 'http://localhost:4200'];
 
 // CORS middleware configuration
 app.use(cors({

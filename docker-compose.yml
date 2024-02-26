@@ -14,12 +14,14 @@ services:
       - /usr/src/app/node_modules
     container_name: uod-lib-occupancy-api
 
-  web-cli:
-    image: uod-occupancy-tracker-api
+  nginx:
+    build: ./nginx
+    ports:
+      - "443:443"
+    depends_on:
+      - api
     networks:
       - backend
-    command: sh
-    container_name: web-cli-container
 
   total-occupancy:
     build: ./total-library-occupancy
