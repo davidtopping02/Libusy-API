@@ -38,10 +38,10 @@ app.use((err, req, res, next) => {
 
 /* Import and use router modules */
 const defaultRouter = require("./routes/index.route");
-app.use("/", defaultRouter);
+app.use("/api", defaultRouter);
 
 const occupancyDataRouter = require("./routes/occupancy.route");
-app.use("/occupancy", occupancyDataRouter);
+app.use("/api/occupancy", occupancyDataRouter);
 
 // Listening on the specified port
 app.listen(config.port, config.host, (e) => {
