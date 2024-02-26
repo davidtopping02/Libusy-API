@@ -50,7 +50,7 @@ def main():
     # api_url = 'http://10.8.0.1:80'
 
     # For Docker use
-    api_url = 'http://uod-lib-occupancy-api:80'
+    api_url = 'http://uod-lib-occupancy-api:80/api'
 
     manager = TotalOccupancyManager(api_url, username, password)
     manager.run_periodically()
