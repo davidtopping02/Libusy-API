@@ -22,6 +22,10 @@ services:
       - api
     networks:
       - backend
+    volumes:
+      - /etc/letsencrypt/live/davidtopping.dev/fullchain.pem:/etc/ssl/cert.pem
+      - /etc/letsencrypt/live/davidtopping.dev/privkey.pem:/etc/ssl/privkey.pem
+    container_name: uod-lib-occupancy-nginx
 
   total-occupancy:
     build: ./total-library-occupancy
