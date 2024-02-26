@@ -3,7 +3,7 @@ const cors = require('cors');
 
 const config = {
     name: 'uod-library-occupancy-api',
-    port: 80,
+    port: 443,
     host: '0.0.0.0'
 }
 
