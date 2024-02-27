@@ -58,18 +58,17 @@ async function getOccupancySummaryData() {
         let hoursData = [];
 
         if (section.section_id !== 1) {
-            // Fetch past occupancy data for the last 2 hours
+            // Fetch past occupancy data for the last 2 hours excluding the current hour
             const pastOccupancy = await db.query(`
-            SELECT 
-            DATE_FORMAT(DATE_SUB(date, INTERVAL 1 HOUR), '%H:00') AS hour, 
-            ROUND((average_occupancy_count / ? * 100)) AS occupancy_percentage
-        FROM uodLibraryOccupancy.occupancySummary
-        WHERE section_id = ? 
-            AND date >= DATE_SUB(NOW(), INTERVAL 2 HOUR) -- Adjusted interval to go 1 hour back
-            AND date < DATE_SUB(NOW(), INTERVAL 0 HOUR)  -- Adjusted interval to end at current hour
-        ORDER BY date ASC;
-        
-        `, [section.total_occupancy, section.section_id]);
+                SELECT 
+                    DATE_FORMAT(DATE_SUB(date, INTERVAL 0 HOUR), '%H:00') AS hour, 
+                    ROUND((average_occupancy_count / ? * 100)) AS occupancy_percentage
+                FROM uodLibraryOccupancy.occupancySummary
+                WHERE section_id = ? 
+                    AND date >= DATE_SUB(NOW(), INTERVAL 3 HOUR) -- Adjusted interval to go 2 hours back
+                    AND date < DATE_SUB(NOW(), INTERVAL 1 HOUR)  -- Adjusted interval to end 1 hour ago
+                ORDER BY date ASC;
+            `, [section.total_occupancy, section.section_id]);
 
             // Append past occupancy data
             hoursData.push(...pastOccupancy.map(item => ({
@@ -77,6 +76,7 @@ async function getOccupancySummaryData() {
                 occupancy_percentage: parseFloat(item.occupancy_percentage.toFixed(2))
             })));
         }
+
 
         // Fetch and append current hour occupancy percentage directly from the section table
         const currentHour = new Date();
