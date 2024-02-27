@@ -12,7 +12,7 @@ const sensorData = require('../services/sensors');
 router.get('/', async (req, res, next) => {
 
     try {
-        const data = await occupancyData.getOccupancyData();
+        const data = await occupancyData.getOccupancySummaryData();
         res.json(data);
     } catch (err) {
         console.error('Error while getting all occupancy data', err.message);
