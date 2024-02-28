@@ -10,7 +10,7 @@ class TotalOccupancyManager:
         self.last_calibration_date = None
 
     def total_occupancy_calibration(self):
-        self.api.update_total_occupancy(self.api.get_total_base())
+        self.api.update_total_occupancy(self.api.get_total_base(), True)
         logging.info("total occupancy calibrated")
 
     def calculate_next_run(self):
