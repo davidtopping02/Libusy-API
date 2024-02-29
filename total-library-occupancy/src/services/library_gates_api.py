@@ -48,7 +48,7 @@ class LibraryGateAPI:
             self.occupancy_api.update_total_occupancy(new_occupancy)
             logging.info(f"Total occupancy updated. Net change: {net_change}")
         else:
-            self.occupancy_api.update_total_occupancy(new_occupancy)
+            self.occupancy_api.update_total_occupancy(net_change)
             logging.info(f"Total occupancy reset reset to: {net_change}")
 
     def get_total_base(self):
