@@ -158,11 +158,40 @@ async function getOccupancyDataBySectionAndTimePeriod(sectionId, startDate, endD
     return transformedData;
 }
 
+async function updateOccupancyPredictions(sectionId, predictions) {
+
+    const dataToInsertOrUpdate = predictions.map(prediction => [
+        sectionId,
+        prediction.timestamp,
+        prediction.occupancy_count
+    ]);
+
+    const placeholders = dataToInsertOrUpdate.map(() => '(?,?,?)').join(',');
+    const values = dataToInsertOrUpdate.flat();
+
+    const query = `
+        INSERT INTO occupancyPrediction (section_id, prediction_datetime, predicted_occupancy)
+        VALUES ${placeholders}
+        ON DUPLICATE KEY UPDATE predicted_occupancy = VALUES(predicted_occupancy);
+    `;
+
+    try {
+        await db.query(query, values);
+        console.log('Occupancy predictions updated successfully.');
+        return { success: true };
+    } catch (error) {
+        console.error('Error updating occupancy predictions:', error);
+        return { success: false, error: 'Failed to update occupancy predictions.' };
+    }
+}
+
+
 
 module.exports = {
     getOccupancyData,
     getOccupancyDataBySection,
     addOccupancyData,
     getOccupancySummaryData,
-    getOccupancyDataBySectionAndTimePeriod
+    getOccupancyDataBySectionAndTimePeriod,
+    updateOccupancyPredictions
 }
