@@ -1,0 +1,717 @@
+ERROR:[2024-03-04 15:27:14,096]:root: Failed to fetch occupancy data from API. Status code: 404
+ERROR:[2024-03-04 15:27:57,837]:root: Failed to fetch occupancy data from API. Status code: 404
+INFO:[2024-03-04 15:30:45,960]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:31:00,828]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:31:40,664]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:32:03,922]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:39:56,395]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:40:12,056]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:42:19,475]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:42:38,052]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:43:45,464]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:44:18,709]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:45:28,981]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:46:46,907]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:48:03,478]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:51:13,163]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:53:44,108]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:54:18,292]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:55:32,785]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:56:09,818]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 15:59:29,022]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:04:52,026]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:04:52,048]:root: Root Mean Squared Error: 45.82215595929207
+INFO:[2024-03-04 16:04:52,048]:root: R^2 Score: 0.07035893722351805
+INFO:[2024-03-04 16:06:24,225]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:06:24,249]:root: Root Mean Squared Error: 45.82215595929207
+INFO:[2024-03-04 16:06:24,250]:root: R^2 Score: 0.07035893722351805
+INFO:[2024-03-04 16:06:48,897]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:06:48,920]:root: Root Mean Squared Error: 402.54797575363744
+INFO:[2024-03-04 16:06:48,920]:root: R^2 Score: 0.07731609750453894
+INFO:[2024-03-04 16:07:41,092]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:07:41,119]:root: Root Mean Squared Error: 402.54797575363744
+INFO:[2024-03-04 16:07:41,119]:root: R^2 Score: 0.07731609750453894
+INFO:[2024-03-04 16:08:33,944]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:08:33,965]:root: Root Mean Squared Error: 410.5594998152489
+INFO:[2024-03-04 16:08:33,966]:root: R^2 Score: 0.1616463954763787
+INFO:[2024-03-04 16:11:11,809]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:11:11,831]:root: Root Mean Squared Error: 410.5594998152489
+INFO:[2024-03-04 16:11:11,831]:root: R^2 Score: 0.1616463954763787
+INFO:[2024-03-04 16:14:49,962]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:14:50,003]:root: Root Mean Squared Error: 410.5594998152489
+INFO:[2024-03-04 16:14:50,004]:root: R^2 Score: 0.1616463954763787
+INFO:[2024-03-04 16:16:36,393]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:16:36,432]:root: Root Mean Squared Error: 410.5594998152489
+INFO:[2024-03-04 16:16:36,432]:root: R^2 Score: 0.1616463954763787
+INFO:[2024-03-04 16:17:54,257]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:18:28,201]:root: Root Mean Squared Error: 410.5594998152489
+INFO:[2024-03-04 16:18:28,202]:root: R^2 Score: 0.1616463954763787
+INFO:[2024-03-04 16:19:53,049]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:20:59,359]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:22:34,809]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:24:42,158]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:24:42,207]:root: Root Mean Squared Error: 450.039833393327
+INFO:[2024-03-04 16:24:42,208]:root: R^2 Score: -0.007341984849715821
+INFO:[2024-03-04 16:25:56,588]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:25:56,625]:root: Root Mean Squared Error: 450.039833393327
+INFO:[2024-03-04 16:25:56,625]:root: R^2 Score: -0.007341984849715821
+INFO:[2024-03-04 16:27:46,151]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:27:46,181]:root: Root Mean Squared Error: 410.5594998152489
+INFO:[2024-03-04 16:27:46,182]:root: R^2 Score: 0.1616463954763787
+INFO:[2024-03-04 16:29:14,739]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:29:14,768]:root: Root Mean Squared Error: 410.5594998152489
+INFO:[2024-03-04 16:29:14,768]:root: R^2 Score: 0.1616463954763787
+INFO:[2024-03-04 16:30:52,277]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:30:52,307]:root: Root Mean Squared Error: 49.60082296918022
+INFO:[2024-03-04 16:30:52,307]:root: R^2 Score: 0.4425243474353704
+INFO:[2024-03-04 16:33:22,641]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:33:22,667]:root: Root Mean Squared Error: 49.60082296918022
+INFO:[2024-03-04 16:33:22,668]:root: R^2 Score: 0.4425243474353704
+INFO:[2024-03-04 16:40:14,546]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:40:14,576]:root: Root Mean Squared Error: 39.21573256868456
+INFO:[2024-03-04 16:40:14,576]:root: R^2 Score: -0.11401971489360418
+INFO:[2024-03-04 16:40:38,856]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:40:38,888]:root: Root Mean Squared Error: 39.21573256868456
+INFO:[2024-03-04 16:40:38,888]:root: R^2 Score: -0.11401971489360418
+INFO:[2024-03-04 16:41:56,813]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:41:56,845]:root: Root Mean Squared Error: 39.21573256868456
+INFO:[2024-03-04 16:41:56,845]:root: R^2 Score: -0.11401971489360418
+INFO:[2024-03-04 16:42:38,299]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:42:38,331]:root: Root Mean Squared Error: 39.21573256868456
+INFO:[2024-03-04 16:42:38,331]:root: R^2 Score: -0.11401971489360418
+INFO:[2024-03-04 16:43:04,361]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:43:04,391]:root: Root Mean Squared Error: 39.21573256868456
+INFO:[2024-03-04 16:43:04,392]:root: R^2 Score: -0.11401971489360418
+ERROR:[2024-03-04 16:45:09,783]:root: Failed to post predictions for Section 2 to API. Status code: 404
+INFO:[2024-03-04 16:48:28,939]:root: Running...
+INFO:[2024-03-04 16:48:29,176]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:48:29,178]:root: Fetched Data for Section 2:
+INFO:[2024-03-04 16:48:29,179]:root:                        date  average_occupancy_count
+0  2024-02-27T17:00:00.000Z                       25
+1  2024-02-27T18:00:00.000Z                       23
+2  2024-02-28T11:00:00.000Z                       28
+3  2024-02-28T13:00:00.000Z                      190
+4  2024-02-28T14:00:00.000Z                      150
+INFO:[2024-03-04 16:48:29,192]:root: 
+INFO:[2024-03-04 16:48:29,211]:root: Root Mean Squared Error: 39.21573256868456
+INFO:[2024-03-04 16:48:29,212]:root: R^2 Score: -0.11401971489360418
+INFO:[2024-03-04 16:48:29,214]:root: Next Day Predictions for Section 2:
+INFO:[2024-03-04 16:48:29,214]:root: Hour: 0, Prediction: 58.39974159405114
+INFO:[2024-03-04 16:48:29,214]:root: Hour: 1, Prediction: 61.74293165425195
+INFO:[2024-03-04 16:48:29,214]:root: Hour: 2, Prediction: 65.08612171445276
+INFO:[2024-03-04 16:48:29,214]:root: Hour: 3, Prediction: 68.42931177465357
+INFO:[2024-03-04 16:48:29,215]:root: Hour: 4, Prediction: 71.77250183485438
+INFO:[2024-03-04 16:48:29,215]:root: Hour: 5, Prediction: 75.11569189505519
+INFO:[2024-03-04 16:48:29,215]:root: Hour: 6, Prediction: 78.45888195525599
+INFO:[2024-03-04 16:48:29,215]:root: Hour: 7, Prediction: 81.8020720154568
+INFO:[2024-03-04 16:48:29,215]:root: Hour: 8, Prediction: 85.14526207565761
+INFO:[2024-03-04 16:48:29,215]:root: Hour: 9, Prediction: 88.48845213585842
+INFO:[2024-03-04 16:48:29,216]:root: Hour: 10, Prediction: 91.83164219605922
+INFO:[2024-03-04 16:48:29,216]:root: Hour: 11, Prediction: 95.17483225626003
+INFO:[2024-03-04 16:48:29,216]:root: Hour: 12, Prediction: 98.51802231646084
+INFO:[2024-03-04 16:48:29,216]:root: Hour: 13, Prediction: 101.86121237666165
+INFO:[2024-03-04 16:48:29,217]:root: Hour: 14, Prediction: 105.20440243686247
+INFO:[2024-03-04 16:48:29,217]:root: Hour: 15, Prediction: 108.54759249706328
+INFO:[2024-03-04 16:48:29,217]:root: Hour: 16, Prediction: 111.89078255726409
+INFO:[2024-03-04 16:48:29,217]:root: Hour: 17, Prediction: 115.23397261746489
+INFO:[2024-03-04 16:48:29,218]:root: Hour: 18, Prediction: 118.5771626776657
+INFO:[2024-03-04 16:48:29,218]:root: Hour: 19, Prediction: 121.92035273786651
+INFO:[2024-03-04 16:48:29,218]:root: Hour: 20, Prediction: 125.2635427980673
+INFO:[2024-03-04 16:48:29,218]:root: Hour: 21, Prediction: 128.60673285826812
+INFO:[2024-03-04 16:48:29,218]:root: Hour: 22, Prediction: 131.94992291846893
+INFO:[2024-03-04 16:48:29,218]:root: Hour: 23, Prediction: 135.29311297866974
+INFO:[2024-03-04 16:52:53,671]:root: Running...
+INFO:[2024-03-04 16:52:53,904]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:52:53,906]:root: Fetched Data for Section 2:
+INFO:[2024-03-04 16:52:53,906]:root:                        date  average_occupancy_count
+0  2024-02-27T17:00:00.000Z                       25
+1  2024-02-27T18:00:00.000Z                       23
+2  2024-02-28T11:00:00.000Z                       28
+3  2024-02-28T13:00:00.000Z                      190
+4  2024-02-28T14:00:00.000Z                      150
+INFO:[2024-03-04 16:52:53,919]:root: 
+INFO:[2024-03-04 16:52:53,937]:root: Root Mean Squared Error: 13.785625784159004
+INFO:[2024-03-04 16:52:53,937]:root: R^2 Score: 0.8623344790283046
+INFO:[2024-03-04 16:52:53,939]:root: Next Day Predictions for Section 2:
+INFO:[2024-03-04 16:52:53,939]:root: Hour: 0, Prediction: 59.0
+INFO:[2024-03-04 16:52:53,939]:root: Hour: 1, Prediction: 23.0
+INFO:[2024-03-04 16:52:53,940]:root: Hour: 2, Prediction: 19.0
+INFO:[2024-03-04 16:52:53,940]:root: Hour: 3, Prediction: 14.0
+INFO:[2024-03-04 16:52:53,940]:root: Hour: 4, Prediction: 14.0
+INFO:[2024-03-04 16:52:53,940]:root: Hour: 5, Prediction: 15.0
+INFO:[2024-03-04 16:52:53,940]:root: Hour: 6, Prediction: 17.0
+INFO:[2024-03-04 16:52:53,941]:root: Hour: 7, Prediction: 17.0
+INFO:[2024-03-04 16:52:53,941]:root: Hour: 8, Prediction: 40.0
+INFO:[2024-03-04 16:52:53,941]:root: Hour: 9, Prediction: 75.0
+INFO:[2024-03-04 16:52:53,941]:root: Hour: 10, Prediction: 23.0
+INFO:[2024-03-04 16:52:53,941]:root: Hour: 11, Prediction: 23.0
+INFO:[2024-03-04 16:52:53,942]:root: Hour: 12, Prediction: 23.0
+INFO:[2024-03-04 16:52:53,942]:root: Hour: 13, Prediction: 23.0
+INFO:[2024-03-04 16:52:53,942]:root: Hour: 14, Prediction: 23.0
+INFO:[2024-03-04 16:52:53,943]:root: Hour: 15, Prediction: 23.0
+INFO:[2024-03-04 16:52:53,943]:root: Hour: 16, Prediction: 23.0
+INFO:[2024-03-04 16:52:53,943]:root: Hour: 17, Prediction: 23.0
+INFO:[2024-03-04 16:52:53,943]:root: Hour: 18, Prediction: 23.0
+INFO:[2024-03-04 16:52:53,943]:root: Hour: 19, Prediction: 23.0
+INFO:[2024-03-04 16:52:53,943]:root: Hour: 20, Prediction: 88.0
+INFO:[2024-03-04 16:52:53,944]:root: Hour: 21, Prediction: 68.0
+INFO:[2024-03-04 16:52:53,944]:root: Hour: 22, Prediction: 68.0
+INFO:[2024-03-04 16:52:53,944]:root: Hour: 23, Prediction: 51.0
+ERROR:[2024-03-04 16:53:20,875]:root: Failed to post predictions for Section 2 to API. Status code: 404
+INFO:[2024-03-04 16:53:21,097]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:53:21,098]:root: Fetched Data for Section 3:
+INFO:[2024-03-04 16:53:21,098]:root:                        date  average_occupancy_count
+0  2024-02-27T17:00:00.000Z                       10
+1  2024-02-27T18:00:00.000Z                        8
+2  2024-02-28T11:00:00.000Z                       23
+3  2024-02-28T12:00:00.000Z                      343
+4  2024-02-28T13:00:00.000Z                      273
+INFO:[2024-03-04 16:53:21,106]:root: 
+INFO:[2024-03-04 16:53:21,118]:root: Root Mean Squared Error: 61.52376705829609
+INFO:[2024-03-04 16:53:21,118]:root: R^2 Score: 0.7435277273691405
+INFO:[2024-03-04 16:53:21,120]:root: Next Day Predictions for Section 3:
+INFO:[2024-03-04 16:53:21,121]:root: Hour: 0, Prediction: 80.0
+INFO:[2024-03-04 16:53:21,121]:root: Hour: 1, Prediction: 80.0
+INFO:[2024-03-04 16:53:21,121]:root: Hour: 2, Prediction: 69.0
+INFO:[2024-03-04 16:53:21,121]:root: Hour: 3, Prediction: 69.0
+INFO:[2024-03-04 16:53:21,122]:root: Hour: 4, Prediction: 39.0
+INFO:[2024-03-04 16:53:21,122]:root: Hour: 5, Prediction: 39.0
+INFO:[2024-03-04 16:53:21,122]:root: Hour: 6, Prediction: 39.0
+INFO:[2024-03-04 16:53:21,122]:root: Hour: 7, Prediction: 43.0
+INFO:[2024-03-04 16:53:21,123]:root: Hour: 8, Prediction: 79.0
+INFO:[2024-03-04 16:53:21,123]:root: Hour: 9, Prediction: 124.0
+INFO:[2024-03-04 16:53:21,123]:root: Hour: 10, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,123]:root: Hour: 11, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,123]:root: Hour: 12, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,124]:root: Hour: 13, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,124]:root: Hour: 14, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,124]:root: Hour: 15, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,124]:root: Hour: 16, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,124]:root: Hour: 17, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,124]:root: Hour: 18, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,125]:root: Hour: 19, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,125]:root: Hour: 20, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,125]:root: Hour: 21, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,125]:root: Hour: 22, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,125]:root: Hour: 23, Prediction: 8.0
+ERROR:[2024-03-04 16:53:21,345]:root: Failed to post predictions for Section 3 to API. Status code: 404
+INFO:[2024-03-04 16:53:21,569]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:53:21,570]:root: Fetched Data for Section 4:
+INFO:[2024-03-04 16:53:21,570]:root:                        date  average_occupancy_count
+0  2024-02-27T17:00:00.000Z                       10
+1  2024-02-27T18:00:00.000Z                        8
+2  2024-02-28T11:00:00.000Z                       22
+3  2024-02-28T12:00:00.000Z                      164
+4  2024-02-28T13:00:00.000Z                      284
+INFO:[2024-03-04 16:53:21,578]:root: 
+INFO:[2024-03-04 16:53:21,588]:root: Root Mean Squared Error: 42.67979870373458
+INFO:[2024-03-04 16:53:21,588]:root: R^2 Score: 0.6943290839211327
+INFO:[2024-03-04 16:53:21,590]:root: Next Day Predictions for Section 4:
+INFO:[2024-03-04 16:53:21,591]:root: Hour: 0, Prediction: 42.0
+INFO:[2024-03-04 16:53:21,591]:root: Hour: 1, Prediction: 28.0
+INFO:[2024-03-04 16:53:21,591]:root: Hour: 2, Prediction: 21.0
+INFO:[2024-03-04 16:53:21,591]:root: Hour: 3, Prediction: 21.0
+INFO:[2024-03-04 16:53:21,592]:root: Hour: 4, Prediction: 19.0
+INFO:[2024-03-04 16:53:21,592]:root: Hour: 5, Prediction: 23.0
+INFO:[2024-03-04 16:53:21,592]:root: Hour: 6, Prediction: 20.0
+INFO:[2024-03-04 16:53:21,592]:root: Hour: 7, Prediction: 22.0
+INFO:[2024-03-04 16:53:21,592]:root: Hour: 8, Prediction: 31.0
+INFO:[2024-03-04 16:53:21,592]:root: Hour: 9, Prediction: 54.0
+INFO:[2024-03-04 16:53:21,593]:root: Hour: 10, Prediction: 22.0
+INFO:[2024-03-04 16:53:21,593]:root: Hour: 11, Prediction: 22.0
+INFO:[2024-03-04 16:53:21,593]:root: Hour: 12, Prediction: 164.0
+INFO:[2024-03-04 16:53:21,593]:root: Hour: 13, Prediction: 270.0
+INFO:[2024-03-04 16:53:21,593]:root: Hour: 14, Prediction: 270.0
+INFO:[2024-03-04 16:53:21,594]:root: Hour: 15, Prediction: 283.0
+INFO:[2024-03-04 16:53:21,594]:root: Hour: 16, Prediction: 220.0
+INFO:[2024-03-04 16:53:21,594]:root: Hour: 17, Prediction: 174.0
+INFO:[2024-03-04 16:53:21,594]:root: Hour: 18, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,594]:root: Hour: 19, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,595]:root: Hour: 20, Prediction: 8.0
+INFO:[2024-03-04 16:53:21,595]:root: Hour: 21, Prediction: 86.0
+INFO:[2024-03-04 16:53:21,595]:root: Hour: 22, Prediction: 86.0
+INFO:[2024-03-04 16:53:21,595]:root: Hour: 23, Prediction: 62.0
+ERROR:[2024-03-04 16:53:21,816]:root: Failed to post predictions for Section 4 to API. Status code: 404
+INFO:[2024-03-04 16:53:22,040]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:53:22,041]:root: Fetched Data for Section 5:
+INFO:[2024-03-04 16:53:22,041]:root:                        date  average_occupancy_count
+0  2024-02-29T17:00:00.000Z                       78
+1  2024-02-29T18:00:00.000Z                      324
+2  2024-02-29T19:00:00.000Z                      346
+3  2024-02-29T20:00:00.000Z                      351
+4  2024-02-29T21:00:00.000Z                      487
+INFO:[2024-03-04 16:53:22,049]:root: 
+INFO:[2024-03-04 16:53:22,059]:root: Root Mean Squared Error: 81.19575112036344
+INFO:[2024-03-04 16:53:22,060]:root: R^2 Score: 0.5375008597814908
+INFO:[2024-03-04 16:53:22,062]:root: Next Day Predictions for Section 5:
+INFO:[2024-03-04 16:53:22,063]:root: Hour: 0, Prediction: 79.0
+INFO:[2024-03-04 16:53:22,063]:root: Hour: 1, Prediction: 79.0
+INFO:[2024-03-04 16:53:22,063]:root: Hour: 2, Prediction: 79.0
+INFO:[2024-03-04 16:53:22,063]:root: Hour: 3, Prediction: 79.0
+INFO:[2024-03-04 16:53:22,063]:root: Hour: 4, Prediction: 49.0
+INFO:[2024-03-04 16:53:22,064]:root: Hour: 5, Prediction: 49.0
+INFO:[2024-03-04 16:53:22,064]:root: Hour: 6, Prediction: 51.0
+INFO:[2024-03-04 16:53:22,064]:root: Hour: 7, Prediction: 57.0
+INFO:[2024-03-04 16:53:22,064]:root: Hour: 8, Prediction: 96.0
+INFO:[2024-03-04 16:53:22,064]:root: Hour: 9, Prediction: 179.0
+INFO:[2024-03-04 16:53:22,064]:root: Hour: 10, Prediction: 245.0
+INFO:[2024-03-04 16:53:22,065]:root: Hour: 11, Prediction: 245.0
+INFO:[2024-03-04 16:53:22,065]:root: Hour: 12, Prediction: 412.0
+INFO:[2024-03-04 16:53:22,065]:root: Hour: 13, Prediction: 359.0
+INFO:[2024-03-04 16:53:22,065]:root: Hour: 14, Prediction: 425.0
+INFO:[2024-03-04 16:53:22,066]:root: Hour: 15, Prediction: 425.0
+INFO:[2024-03-04 16:53:22,066]:root: Hour: 16, Prediction: 324.0
+INFO:[2024-03-04 16:53:22,066]:root: Hour: 17, Prediction: 324.0
+INFO:[2024-03-04 16:53:22,066]:root: Hour: 18, Prediction: 324.0
+INFO:[2024-03-04 16:53:22,066]:root: Hour: 19, Prediction: 346.0
+INFO:[2024-03-04 16:53:22,066]:root: Hour: 20, Prediction: 351.0
+INFO:[2024-03-04 16:53:22,067]:root: Hour: 21, Prediction: 351.0
+INFO:[2024-03-04 16:53:22,067]:root: Hour: 22, Prediction: 275.0
+INFO:[2024-03-04 16:53:22,067]:root: Hour: 23, Prediction: 178.0
+ERROR:[2024-03-04 16:53:22,288]:root: Failed to post predictions for Section 5 to API. Status code: 404
+INFO:[2024-03-04 16:53:22,512]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:53:22,513]:root: Fetched Data for Section 6:
+INFO:[2024-03-04 16:53:22,513]:root:                        date  average_occupancy_count
+0  2024-02-26T20:00:00.000Z                      208
+1  2024-02-26T21:00:00.000Z                      186
+2  2024-02-26T22:00:00.000Z                      133
+3  2024-02-26T23:00:00.000Z                       94
+4  2024-02-27T00:00:00.000Z                       67
+INFO:[2024-03-04 16:53:22,521]:root: 
+INFO:[2024-03-04 16:53:22,530]:root: Root Mean Squared Error: 55.813379519012585
+INFO:[2024-03-04 16:53:22,531]:root: R^2 Score: 0.29412990978543074
+INFO:[2024-03-04 16:53:22,533]:root: Next Day Predictions for Section 6:
+INFO:[2024-03-04 16:53:22,534]:root: Hour: 0, Prediction: 67.0
+INFO:[2024-03-04 16:53:22,534]:root: Hour: 1, Prediction: 50.0
+INFO:[2024-03-04 16:53:22,534]:root: Hour: 2, Prediction: 36.0
+INFO:[2024-03-04 16:53:22,535]:root: Hour: 3, Prediction: 33.0
+INFO:[2024-03-04 16:53:22,535]:root: Hour: 4, Prediction: 34.0
+INFO:[2024-03-04 16:53:22,535]:root: Hour: 5, Prediction: 38.0
+INFO:[2024-03-04 16:53:22,535]:root: Hour: 6, Prediction: 37.0
+INFO:[2024-03-04 16:53:22,535]:root: Hour: 7, Prediction: 44.0
+INFO:[2024-03-04 16:53:22,535]:root: Hour: 8, Prediction: 66.0
+INFO:[2024-03-04 16:53:22,536]:root: Hour: 9, Prediction: 132.0
+INFO:[2024-03-04 16:53:22,536]:root: Hour: 10, Prediction: 182.0
+INFO:[2024-03-04 16:53:22,536]:root: Hour: 11, Prediction: 186.0
+INFO:[2024-03-04 16:53:22,536]:root: Hour: 12, Prediction: 217.0
+INFO:[2024-03-04 16:53:22,536]:root: Hour: 13, Prediction: 208.0
+INFO:[2024-03-04 16:53:22,537]:root: Hour: 14, Prediction: 208.0
+INFO:[2024-03-04 16:53:22,537]:root: Hour: 15, Prediction: 208.0
+INFO:[2024-03-04 16:53:22,537]:root: Hour: 16, Prediction: 208.0
+INFO:[2024-03-04 16:53:22,537]:root: Hour: 17, Prediction: 239.0
+INFO:[2024-03-04 16:53:22,537]:root: Hour: 18, Prediction: 190.0
+INFO:[2024-03-04 16:53:22,538]:root: Hour: 19, Prediction: 403.0
+INFO:[2024-03-04 16:53:22,538]:root: Hour: 20, Prediction: 191.0
+INFO:[2024-03-04 16:53:22,538]:root: Hour: 21, Prediction: 129.0
+INFO:[2024-03-04 16:53:22,538]:root: Hour: 22, Prediction: 155.0
+INFO:[2024-03-04 16:53:22,538]:root: Hour: 23, Prediction: 94.0
+ERROR:[2024-03-04 16:53:22,760]:root: Failed to post predictions for Section 6 to API. Status code: 404
+INFO:[2024-03-04 16:54:59,863]:root: Running...
+INFO:[2024-03-04 16:55:00,101]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:55:00,102]:root: Fetched Data for Section 2:
+INFO:[2024-03-04 16:55:00,103]:root:                        date  average_occupancy_count
+0  2024-02-27T17:00:00.000Z                       25
+1  2024-02-27T18:00:00.000Z                       23
+2  2024-02-28T11:00:00.000Z                       28
+3  2024-02-28T13:00:00.000Z                      190
+4  2024-02-28T14:00:00.000Z                      150
+INFO:[2024-03-04 16:55:00,116]:root: 
+INFO:[2024-03-04 16:55:00,334]:root: Root Mean Squared Error: 17.848038255371865
+INFO:[2024-03-04 16:55:00,335]:root: R^2 Score: 0.7692439010229093
+INFO:[2024-03-04 16:55:00,350]:root: Next Day Predictions for Section 2:
+INFO:[2024-03-04 16:55:00,350]:root: Hour: 0, Prediction: 51.7
+INFO:[2024-03-04 16:55:00,350]:root: Hour: 1, Prediction: 38.65
+INFO:[2024-03-04 16:55:00,351]:root: Hour: 2, Prediction: 31.46
+INFO:[2024-03-04 16:55:00,351]:root: Hour: 3, Prediction: 26.27
+INFO:[2024-03-04 16:55:00,351]:root: Hour: 4, Prediction: 26.25
+INFO:[2024-03-04 16:55:00,352]:root: Hour: 5, Prediction: 27.13
+INFO:[2024-03-04 16:55:00,352]:root: Hour: 6, Prediction: 27.73
+INFO:[2024-03-04 16:55:00,352]:root: Hour: 7, Prediction: 28.29
+INFO:[2024-03-04 16:55:00,353]:root: Hour: 8, Prediction: 44.53
+INFO:[2024-03-04 16:55:00,353]:root: Hour: 9, Prediction: 65.59
+INFO:[2024-03-04 16:55:00,353]:root: Hour: 10, Prediction: 67.17
+INFO:[2024-03-04 16:55:00,354]:root: Hour: 11, Prediction: 71.48
+INFO:[2024-03-04 16:55:00,354]:root: Hour: 12, Prediction: 123.03
+INFO:[2024-03-04 16:55:00,354]:root: Hour: 13, Prediction: 124.4
+INFO:[2024-03-04 16:55:00,354]:root: Hour: 14, Prediction: 113.65
+INFO:[2024-03-04 16:55:00,354]:root: Hour: 15, Prediction: 109.78
+INFO:[2024-03-04 16:55:00,355]:root: Hour: 16, Prediction: 118.86
+INFO:[2024-03-04 16:55:00,355]:root: Hour: 17, Prediction: 97.56
+INFO:[2024-03-04 16:55:00,355]:root: Hour: 18, Prediction: 61.61
+INFO:[2024-03-04 16:55:00,355]:root: Hour: 19, Prediction: 61.05
+INFO:[2024-03-04 16:55:00,356]:root: Hour: 20, Prediction: 62.52
+INFO:[2024-03-04 16:55:00,356]:root: Hour: 21, Prediction: 55.58
+INFO:[2024-03-04 16:55:00,357]:root: Hour: 22, Prediction: 51.73
+INFO:[2024-03-04 16:55:00,357]:root: Hour: 23, Prediction: 47.26
+ERROR:[2024-03-04 16:55:00,579]:root: Failed to post predictions for Section 2 to API. Status code: 404
+INFO:[2024-03-04 16:55:00,814]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:55:00,815]:root: Fetched Data for Section 3:
+INFO:[2024-03-04 16:55:00,816]:root:                        date  average_occupancy_count
+0  2024-02-27T17:00:00.000Z                       10
+1  2024-02-27T18:00:00.000Z                        8
+2  2024-02-28T11:00:00.000Z                       23
+3  2024-02-28T12:00:00.000Z                      343
+4  2024-02-28T13:00:00.000Z                      273
+INFO:[2024-03-04 16:55:00,825]:root: 
+INFO:[2024-03-04 16:55:01,007]:root: Root Mean Squared Error: 50.94221389497849
+INFO:[2024-03-04 16:55:01,008]:root: R^2 Score: 0.8241630217293959
+INFO:[2024-03-04 16:55:01,018]:root: Next Day Predictions for Section 3:
+INFO:[2024-03-04 16:55:01,018]:root: Hour: 0, Prediction: 91.65
+INFO:[2024-03-04 16:55:01,018]:root: Hour: 1, Prediction: 86.04
+INFO:[2024-03-04 16:55:01,018]:root: Hour: 2, Prediction: 73.13
+INFO:[2024-03-04 16:55:01,019]:root: Hour: 3, Prediction: 47.04
+INFO:[2024-03-04 16:55:01,019]:root: Hour: 4, Prediction: 39.64
+INFO:[2024-03-04 16:55:01,019]:root: Hour: 5, Prediction: 39.47
+INFO:[2024-03-04 16:55:01,019]:root: Hour: 6, Prediction: 40.3
+INFO:[2024-03-04 16:55:01,019]:root: Hour: 7, Prediction: 44.46
+INFO:[2024-03-04 16:55:01,019]:root: Hour: 8, Prediction: 67.92
+INFO:[2024-03-04 16:55:01,020]:root: Hour: 9, Prediction: 93.8
+INFO:[2024-03-04 16:55:01,020]:root: Hour: 10, Prediction: 72.15
+INFO:[2024-03-04 16:55:01,020]:root: Hour: 11, Prediction: 57.69
+INFO:[2024-03-04 16:55:01,020]:root: Hour: 12, Prediction: 120.26
+INFO:[2024-03-04 16:55:01,020]:root: Hour: 13, Prediction: 108.41
+INFO:[2024-03-04 16:55:01,021]:root: Hour: 14, Prediction: 97.08
+INFO:[2024-03-04 16:55:01,021]:root: Hour: 15, Prediction: 87.6
+INFO:[2024-03-04 16:55:01,021]:root: Hour: 16, Prediction: 94.25
+INFO:[2024-03-04 16:55:01,021]:root: Hour: 17, Prediction: 98.57
+INFO:[2024-03-04 16:55:01,021]:root: Hour: 18, Prediction: 81.22
+INFO:[2024-03-04 16:55:01,022]:root: Hour: 19, Prediction: 100.95
+INFO:[2024-03-04 16:55:01,022]:root: Hour: 20, Prediction: 111.27
+INFO:[2024-03-04 16:55:01,022]:root: Hour: 21, Prediction: 118.5
+INFO:[2024-03-04 16:55:01,022]:root: Hour: 22, Prediction: 113.87
+INFO:[2024-03-04 16:55:01,022]:root: Hour: 23, Prediction: 95.55
+ERROR:[2024-03-04 16:55:01,249]:root: Failed to post predictions for Section 3 to API. Status code: 404
+INFO:[2024-03-04 16:55:01,477]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:55:01,478]:root: Fetched Data for Section 4:
+INFO:[2024-03-04 16:55:01,479]:root:                        date  average_occupancy_count
+0  2024-02-27T17:00:00.000Z                       10
+1  2024-02-27T18:00:00.000Z                        8
+2  2024-02-28T11:00:00.000Z                       22
+3  2024-02-28T12:00:00.000Z                      164
+4  2024-02-28T13:00:00.000Z                      284
+INFO:[2024-03-04 16:55:01,488]:root: 
+INFO:[2024-03-04 16:55:01,634]:root: Root Mean Squared Error: 39.6545167666938
+INFO:[2024-03-04 16:55:01,635]:root: R^2 Score: 0.7361271441196586
+INFO:[2024-03-04 16:55:01,643]:root: Next Day Predictions for Section 4:
+INFO:[2024-03-04 16:55:01,643]:root: Hour: 0, Prediction: 46.62
+INFO:[2024-03-04 16:55:01,644]:root: Hour: 1, Prediction: 31.62
+INFO:[2024-03-04 16:55:01,644]:root: Hour: 2, Prediction: 27.78
+INFO:[2024-03-04 16:55:01,644]:root: Hour: 3, Prediction: 26.65
+INFO:[2024-03-04 16:55:01,644]:root: Hour: 4, Prediction: 24.89
+INFO:[2024-03-04 16:55:01,644]:root: Hour: 5, Prediction: 26.21
+INFO:[2024-03-04 16:55:01,645]:root: Hour: 6, Prediction: 25.52
+INFO:[2024-03-04 16:55:01,645]:root: Hour: 7, Prediction: 27.59
+INFO:[2024-03-04 16:55:01,645]:root: Hour: 8, Prediction: 31.21
+INFO:[2024-03-04 16:55:01,645]:root: Hour: 9, Prediction: 50.0
+INFO:[2024-03-04 16:55:01,646]:root: Hour: 10, Prediction: 74.05
+INFO:[2024-03-04 16:55:01,646]:root: Hour: 11, Prediction: 69.35
+INFO:[2024-03-04 16:55:01,646]:root: Hour: 12, Prediction: 165.11
+INFO:[2024-03-04 16:55:01,646]:root: Hour: 13, Prediction: 206.72
+INFO:[2024-03-04 16:55:01,646]:root: Hour: 14, Prediction: 234.11
+INFO:[2024-03-04 16:55:01,647]:root: Hour: 15, Prediction: 232.76
+INFO:[2024-03-04 16:55:01,647]:root: Hour: 16, Prediction: 205.48
+INFO:[2024-03-04 16:55:01,647]:root: Hour: 17, Prediction: 161.02
+INFO:[2024-03-04 16:55:01,647]:root: Hour: 18, Prediction: 75.0
+INFO:[2024-03-04 16:55:01,647]:root: Hour: 19, Prediction: 65.35
+INFO:[2024-03-04 16:55:01,648]:root: Hour: 20, Prediction: 56.47
+INFO:[2024-03-04 16:55:01,648]:root: Hour: 21, Prediction: 54.72
+INFO:[2024-03-04 16:55:01,648]:root: Hour: 22, Prediction: 52.46
+INFO:[2024-03-04 16:55:01,648]:root: Hour: 23, Prediction: 46.44
+ERROR:[2024-03-04 16:55:01,869]:root: Failed to post predictions for Section 4 to API. Status code: 404
+INFO:[2024-03-04 16:55:02,092]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:55:02,093]:root: Fetched Data for Section 5:
+INFO:[2024-03-04 16:55:02,093]:root:                        date  average_occupancy_count
+0  2024-02-29T17:00:00.000Z                       78
+1  2024-02-29T18:00:00.000Z                      324
+2  2024-02-29T19:00:00.000Z                      346
+3  2024-02-29T20:00:00.000Z                      351
+4  2024-02-29T21:00:00.000Z                      487
+INFO:[2024-03-04 16:55:02,103]:root: 
+INFO:[2024-03-04 16:55:02,243]:root: Root Mean Squared Error: 83.71383820044329
+INFO:[2024-03-04 16:55:02,243]:root: R^2 Score: 0.5083694852245011
+INFO:[2024-03-04 16:55:02,250]:root: Next Day Predictions for Section 5:
+INFO:[2024-03-04 16:55:02,251]:root: Hour: 0, Prediction: 105.45
+INFO:[2024-03-04 16:55:02,251]:root: Hour: 1, Prediction: 102.75
+INFO:[2024-03-04 16:55:02,251]:root: Hour: 2, Prediction: 87.37
+INFO:[2024-03-04 16:55:02,251]:root: Hour: 3, Prediction: 71.22
+INFO:[2024-03-04 16:55:02,252]:root: Hour: 4, Prediction: 56.49
+INFO:[2024-03-04 16:55:02,252]:root: Hour: 5, Prediction: 52.68
+INFO:[2024-03-04 16:55:02,252]:root: Hour: 6, Prediction: 55.36
+INFO:[2024-03-04 16:55:02,252]:root: Hour: 7, Prediction: 60.73
+INFO:[2024-03-04 16:55:02,252]:root: Hour: 8, Prediction: 85.67
+INFO:[2024-03-04 16:55:02,252]:root: Hour: 9, Prediction: 141.88
+INFO:[2024-03-04 16:55:02,253]:root: Hour: 10, Prediction: 220.85
+INFO:[2024-03-04 16:55:02,253]:root: Hour: 11, Prediction: 221.92
+INFO:[2024-03-04 16:55:02,253]:root: Hour: 12, Prediction: 371.72
+INFO:[2024-03-04 16:55:02,253]:root: Hour: 13, Prediction: 368.59
+INFO:[2024-03-04 16:55:02,254]:root: Hour: 14, Prediction: 396.99
+INFO:[2024-03-04 16:55:02,254]:root: Hour: 15, Prediction: 386.71
+INFO:[2024-03-04 16:55:02,254]:root: Hour: 16, Prediction: 323.31
+INFO:[2024-03-04 16:55:02,254]:root: Hour: 17, Prediction: 319.59
+INFO:[2024-03-04 16:55:02,255]:root: Hour: 18, Prediction: 322.23
+INFO:[2024-03-04 16:55:02,255]:root: Hour: 19, Prediction: 334.5
+INFO:[2024-03-04 16:55:02,255]:root: Hour: 20, Prediction: 332.39
+INFO:[2024-03-04 16:55:02,255]:root: Hour: 21, Prediction: 308.18
+INFO:[2024-03-04 16:55:02,255]:root: Hour: 22, Prediction: 246.3
+INFO:[2024-03-04 16:55:02,256]:root: Hour: 23, Prediction: 211.78
+ERROR:[2024-03-04 16:55:02,477]:root: Failed to post predictions for Section 5 to API. Status code: 404
+INFO:[2024-03-04 16:55:02,700]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:55:02,701]:root: Fetched Data for Section 6:
+INFO:[2024-03-04 16:55:02,702]:root:                        date  average_occupancy_count
+0  2024-02-26T20:00:00.000Z                      208
+1  2024-02-26T21:00:00.000Z                      186
+2  2024-02-26T22:00:00.000Z                      133
+3  2024-02-26T23:00:00.000Z                       94
+4  2024-02-27T00:00:00.000Z                       67
+INFO:[2024-03-04 16:55:02,709]:root: 
+INFO:[2024-03-04 16:55:02,849]:root: Root Mean Squared Error: 34.274775078279745
+INFO:[2024-03-04 16:55:02,849]:root: R^2 Score: 0.7338065487640061
+INFO:[2024-03-04 16:55:02,856]:root: Next Day Predictions for Section 6:
+INFO:[2024-03-04 16:55:02,857]:root: Hour: 0, Prediction: 65.57
+INFO:[2024-03-04 16:55:02,857]:root: Hour: 1, Prediction: 52.78
+INFO:[2024-03-04 16:55:02,857]:root: Hour: 2, Prediction: 37.06
+INFO:[2024-03-04 16:55:02,858]:root: Hour: 3, Prediction: 34.21
+INFO:[2024-03-04 16:55:02,858]:root: Hour: 4, Prediction: 34.25
+INFO:[2024-03-04 16:55:02,858]:root: Hour: 5, Prediction: 35.18
+INFO:[2024-03-04 16:55:02,858]:root: Hour: 6, Prediction: 36.04
+INFO:[2024-03-04 16:55:02,858]:root: Hour: 7, Prediction: 42.27
+INFO:[2024-03-04 16:55:02,858]:root: Hour: 8, Prediction: 63.76
+INFO:[2024-03-04 16:55:02,859]:root: Hour: 9, Prediction: 124.2
+INFO:[2024-03-04 16:55:02,859]:root: Hour: 10, Prediction: 169.21
+INFO:[2024-03-04 16:55:02,859]:root: Hour: 11, Prediction: 195.55
+INFO:[2024-03-04 16:55:02,859]:root: Hour: 12, Prediction: 212.22
+INFO:[2024-03-04 16:55:02,859]:root: Hour: 13, Prediction: 193.72
+INFO:[2024-03-04 16:55:02,860]:root: Hour: 14, Prediction: 160.02
+INFO:[2024-03-04 16:55:02,860]:root: Hour: 15, Prediction: 186.72
+INFO:[2024-03-04 16:55:02,860]:root: Hour: 16, Prediction: 198.54
+INFO:[2024-03-04 16:55:02,860]:root: Hour: 17, Prediction: 218.93
+INFO:[2024-03-04 16:55:02,860]:root: Hour: 18, Prediction: 203.06
+INFO:[2024-03-04 16:55:02,861]:root: Hour: 19, Prediction: 310.38
+INFO:[2024-03-04 16:55:02,861]:root: Hour: 20, Prediction: 203.52
+INFO:[2024-03-04 16:55:02,861]:root: Hour: 21, Prediction: 144.88
+INFO:[2024-03-04 16:55:02,861]:root: Hour: 22, Prediction: 143.88
+INFO:[2024-03-04 16:55:02,861]:root: Hour: 23, Prediction: 105.31
+ERROR:[2024-03-04 16:55:03,084]:root: Failed to post predictions for Section 6 to API. Status code: 404
+INFO:[2024-03-04 16:56:15,960]:root: Running...
+INFO:[2024-03-04 16:56:16,190]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:56:16,192]:root: Fetched Data for Section 1:
+INFO:[2024-03-04 16:56:16,192]:root:                        date  average_occupancy_count
+0  2024-02-26T17:00:00.000Z                      471
+1  2024-02-26T18:00:00.000Z                      426
+2  2024-02-26T19:00:00.000Z                      371
+3  2024-02-26T20:00:00.000Z                      353
+4  2024-02-26T21:00:00.000Z                      295
+INFO:[2024-03-04 16:56:16,203]:root: 
+INFO:[2024-03-04 16:56:16,352]:root: Root Mean Squared Error: 199.46453966711826
+INFO:[2024-03-04 16:56:16,353]:root: R^2 Score: 0.8021179399975014
+INFO:[2024-03-04 16:56:16,360]:root: Next Day Predictions for Section 1:
+INFO:[2024-03-04 16:56:16,361]:root: Hour: 0, Prediction: 125.78
+INFO:[2024-03-04 16:56:16,361]:root: Hour: 1, Prediction: 130.93
+INFO:[2024-03-04 16:56:16,361]:root: Hour: 2, Prediction: 170.75
+INFO:[2024-03-04 16:56:16,361]:root: Hour: 3, Prediction: 174.15
+INFO:[2024-03-04 16:56:16,362]:root: Hour: 4, Prediction: 266.16
+INFO:[2024-03-04 16:56:16,362]:root: Hour: 5, Prediction: 270.75
+INFO:[2024-03-04 16:56:16,362]:root: Hour: 6, Prediction: 374.28
+INFO:[2024-03-04 16:56:16,362]:root: Hour: 7, Prediction: 400.6
+INFO:[2024-03-04 16:56:16,362]:root: Hour: 8, Prediction: 400.6
+INFO:[2024-03-04 16:56:16,362]:root: Hour: 9, Prediction: 407.65
+INFO:[2024-03-04 16:56:16,363]:root: Hour: 10, Prediction: 647.29
+INFO:[2024-03-04 16:56:16,363]:root: Hour: 11, Prediction: 942.77
+INFO:[2024-03-04 16:56:16,363]:root: Hour: 12, Prediction: 996.61
+INFO:[2024-03-04 16:56:16,363]:root: Hour: 13, Prediction: 1149.28
+INFO:[2024-03-04 16:56:16,363]:root: Hour: 14, Prediction: 1215.28
+INFO:[2024-03-04 16:56:16,363]:root: Hour: 15, Prediction: 1250.65
+INFO:[2024-03-04 16:56:16,363]:root: Hour: 16, Prediction: 1397.09
+INFO:[2024-03-04 16:56:16,364]:root: Hour: 17, Prediction: 1420.11
+INFO:[2024-03-04 16:56:16,364]:root: Hour: 18, Prediction: 1384.61
+INFO:[2024-03-04 16:56:16,364]:root: Hour: 19, Prediction: 1332.49
+INFO:[2024-03-04 16:56:16,364]:root: Hour: 20, Prediction: 1327.07
+INFO:[2024-03-04 16:56:16,364]:root: Hour: 21, Prediction: 1297.53
+INFO:[2024-03-04 16:56:16,364]:root: Hour: 22, Prediction: 1227.84
+INFO:[2024-03-04 16:56:16,365]:root: Hour: 23, Prediction: 1178.02
+ERROR:[2024-03-04 16:56:16,585]:root: Failed to post predictions for Section 1 to API. Status code: 404
+INFO:[2024-03-04 16:56:16,811]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:56:16,812]:root: Fetched Data for Section 2:
+INFO:[2024-03-04 16:56:16,812]:root:                        date  average_occupancy_count
+0  2024-02-27T17:00:00.000Z                       25
+1  2024-02-27T18:00:00.000Z                       23
+2  2024-02-28T11:00:00.000Z                       28
+3  2024-02-28T13:00:00.000Z                      190
+4  2024-02-28T14:00:00.000Z                      150
+INFO:[2024-03-04 16:56:16,820]:root: 
+INFO:[2024-03-04 16:56:16,956]:root: Root Mean Squared Error: 15.70737115801534
+INFO:[2024-03-04 16:56:16,956]:root: R^2 Score: 0.8212775027044792
+INFO:[2024-03-04 16:56:16,963]:root: Next Day Predictions for Section 2:
+INFO:[2024-03-04 16:56:16,964]:root: Hour: 0, Prediction: 53.69
+INFO:[2024-03-04 16:56:16,964]:root: Hour: 1, Prediction: 39.11
+INFO:[2024-03-04 16:56:16,964]:root: Hour: 2, Prediction: 29.55
+INFO:[2024-03-04 16:56:16,965]:root: Hour: 3, Prediction: 24.53
+INFO:[2024-03-04 16:56:16,965]:root: Hour: 4, Prediction: 24.61
+INFO:[2024-03-04 16:56:16,965]:root: Hour: 5, Prediction: 25.49
+INFO:[2024-03-04 16:56:16,965]:root: Hour: 6, Prediction: 26.27
+INFO:[2024-03-04 16:56:16,965]:root: Hour: 7, Prediction: 26.73
+INFO:[2024-03-04 16:56:16,966]:root: Hour: 8, Prediction: 44.42
+INFO:[2024-03-04 16:56:16,966]:root: Hour: 9, Prediction: 62.74
+INFO:[2024-03-04 16:56:16,966]:root: Hour: 10, Prediction: 56.09
+INFO:[2024-03-04 16:56:16,966]:root: Hour: 11, Prediction: 55.08
+INFO:[2024-03-04 16:56:16,966]:root: Hour: 12, Prediction: 106.6
+INFO:[2024-03-04 16:56:16,967]:root: Hour: 13, Prediction: 113.55
+INFO:[2024-03-04 16:56:16,967]:root: Hour: 14, Prediction: 106.08
+INFO:[2024-03-04 16:56:16,967]:root: Hour: 15, Prediction: 98.3
+INFO:[2024-03-04 16:56:16,967]:root: Hour: 16, Prediction: 111.78
+INFO:[2024-03-04 16:56:16,967]:root: Hour: 17, Prediction: 88.58
+INFO:[2024-03-04 16:56:16,967]:root: Hour: 18, Prediction: 59.88
+INFO:[2024-03-04 16:56:16,968]:root: Hour: 19, Prediction: 60.22
+INFO:[2024-03-04 16:56:16,968]:root: Hour: 20, Prediction: 65.94
+INFO:[2024-03-04 16:56:16,968]:root: Hour: 21, Prediction: 59.39
+INFO:[2024-03-04 16:56:16,968]:root: Hour: 22, Prediction: 57.9
+INFO:[2024-03-04 16:56:16,969]:root: Hour: 23, Prediction: 54.16
+ERROR:[2024-03-04 16:56:17,191]:root: Failed to post predictions for Section 2 to API. Status code: 404
+INFO:[2024-03-04 16:56:17,414]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:56:17,415]:root: Fetched Data for Section 3:
+INFO:[2024-03-04 16:56:17,415]:root:                        date  average_occupancy_count
+0  2024-02-27T17:00:00.000Z                       10
+1  2024-02-27T18:00:00.000Z                        8
+2  2024-02-28T11:00:00.000Z                       23
+3  2024-02-28T12:00:00.000Z                      343
+4  2024-02-28T13:00:00.000Z                      273
+INFO:[2024-03-04 16:56:17,423]:root: 
+INFO:[2024-03-04 16:56:17,561]:root: Root Mean Squared Error: 45.24424133426312
+INFO:[2024-03-04 16:56:17,562]:root: R^2 Score: 0.8612984857769084
+INFO:[2024-03-04 16:56:17,569]:root: Next Day Predictions for Section 3:
+INFO:[2024-03-04 16:56:17,570]:root: Hour: 0, Prediction: 93.31
+INFO:[2024-03-04 16:56:17,570]:root: Hour: 1, Prediction: 88.21
+INFO:[2024-03-04 16:56:17,570]:root: Hour: 2, Prediction: 72.12
+INFO:[2024-03-04 16:56:17,570]:root: Hour: 3, Prediction: 49.26
+INFO:[2024-03-04 16:56:17,571]:root: Hour: 4, Prediction: 40.59
+INFO:[2024-03-04 16:56:17,571]:root: Hour: 5, Prediction: 39.88
+INFO:[2024-03-04 16:56:17,571]:root: Hour: 6, Prediction: 40.85
+INFO:[2024-03-04 16:56:17,571]:root: Hour: 7, Prediction: 45.29
+INFO:[2024-03-04 16:56:17,571]:root: Hour: 8, Prediction: 63.36
+INFO:[2024-03-04 16:56:17,571]:root: Hour: 9, Prediction: 90.12
+INFO:[2024-03-04 16:56:17,572]:root: Hour: 10, Prediction: 69.08
+INFO:[2024-03-04 16:56:17,572]:root: Hour: 11, Prediction: 49.33
+INFO:[2024-03-04 16:56:17,572]:root: Hour: 12, Prediction: 112.77
+INFO:[2024-03-04 16:56:17,572]:root: Hour: 13, Prediction: 108.43
+INFO:[2024-03-04 16:56:17,572]:root: Hour: 14, Prediction: 93.97
+INFO:[2024-03-04 16:56:17,572]:root: Hour: 15, Prediction: 83.42
+INFO:[2024-03-04 16:56:17,573]:root: Hour: 16, Prediction: 88.63
+INFO:[2024-03-04 16:56:17,573]:root: Hour: 17, Prediction: 91.58
+INFO:[2024-03-04 16:56:17,573]:root: Hour: 18, Prediction: 84.82
+INFO:[2024-03-04 16:56:17,573]:root: Hour: 19, Prediction: 100.48
+INFO:[2024-03-04 16:56:17,573]:root: Hour: 20, Prediction: 115.18
+INFO:[2024-03-04 16:56:17,574]:root: Hour: 21, Prediction: 107.08
+INFO:[2024-03-04 16:56:17,574]:root: Hour: 22, Prediction: 93.31
+INFO:[2024-03-04 16:56:17,574]:root: Hour: 23, Prediction: 79.05
+ERROR:[2024-03-04 16:56:17,795]:root: Failed to post predictions for Section 3 to API. Status code: 404
+INFO:[2024-03-04 16:56:18,018]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:56:18,019]:root: Fetched Data for Section 4:
+INFO:[2024-03-04 16:56:18,020]:root:                        date  average_occupancy_count
+0  2024-02-27T17:00:00.000Z                       10
+1  2024-02-27T18:00:00.000Z                        8
+2  2024-02-28T11:00:00.000Z                       22
+3  2024-02-28T12:00:00.000Z                      164
+4  2024-02-28T13:00:00.000Z                      284
+INFO:[2024-03-04 16:56:18,028]:root: 
+INFO:[2024-03-04 16:56:18,161]:root: Root Mean Squared Error: 38.35431334509735
+INFO:[2024-03-04 16:56:18,161]:root: R^2 Score: 0.7531473364407715
+INFO:[2024-03-04 16:56:18,169]:root: Next Day Predictions for Section 4:
+INFO:[2024-03-04 16:56:18,169]:root: Hour: 0, Prediction: 42.52
+INFO:[2024-03-04 16:56:18,169]:root: Hour: 1, Prediction: 31.7
+INFO:[2024-03-04 16:56:18,169]:root: Hour: 2, Prediction: 27.17
+INFO:[2024-03-04 16:56:18,170]:root: Hour: 3, Prediction: 25.67
+INFO:[2024-03-04 16:56:18,170]:root: Hour: 4, Prediction: 23.61
+INFO:[2024-03-04 16:56:18,170]:root: Hour: 5, Prediction: 24.65
+INFO:[2024-03-04 16:56:18,170]:root: Hour: 6, Prediction: 24.51
+INFO:[2024-03-04 16:56:18,171]:root: Hour: 7, Prediction: 26.93
+INFO:[2024-03-04 16:56:18,171]:root: Hour: 8, Prediction: 30.39
+INFO:[2024-03-04 16:56:18,171]:root: Hour: 9, Prediction: 52.77
+INFO:[2024-03-04 16:56:18,171]:root: Hour: 10, Prediction: 68.73
+INFO:[2024-03-04 16:56:18,171]:root: Hour: 11, Prediction: 63.17
+INFO:[2024-03-04 16:56:18,172]:root: Hour: 12, Prediction: 178.45
+INFO:[2024-03-04 16:56:18,172]:root: Hour: 13, Prediction: 223.52
+INFO:[2024-03-04 16:56:18,172]:root: Hour: 14, Prediction: 235.95
+INFO:[2024-03-04 16:56:18,172]:root: Hour: 15, Prediction: 234.16
+INFO:[2024-03-04 16:56:18,173]:root: Hour: 16, Prediction: 204.15
+INFO:[2024-03-04 16:56:18,173]:root: Hour: 17, Prediction: 148.98
+INFO:[2024-03-04 16:56:18,173]:root: Hour: 18, Prediction: 62.1
+INFO:[2024-03-04 16:56:18,173]:root: Hour: 19, Prediction: 59.82
+INFO:[2024-03-04 16:56:18,173]:root: Hour: 20, Prediction: 58.3
+INFO:[2024-03-04 16:56:18,174]:root: Hour: 21, Prediction: 54.81
+INFO:[2024-03-04 16:56:18,174]:root: Hour: 22, Prediction: 51.1
+INFO:[2024-03-04 16:56:18,174]:root: Hour: 23, Prediction: 42.54
+ERROR:[2024-03-04 16:56:18,396]:root: Failed to post predictions for Section 4 to API. Status code: 404
+INFO:[2024-03-04 16:56:18,617]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:56:18,618]:root: Fetched Data for Section 5:
+INFO:[2024-03-04 16:56:18,618]:root:                        date  average_occupancy_count
+0  2024-02-29T17:00:00.000Z                       78
+1  2024-02-29T18:00:00.000Z                      324
+2  2024-02-29T19:00:00.000Z                      346
+3  2024-02-29T20:00:00.000Z                      351
+4  2024-02-29T21:00:00.000Z                      487
+INFO:[2024-03-04 16:56:18,626]:root: 
+INFO:[2024-03-04 16:56:18,764]:root: Root Mean Squared Error: 81.19243610860559
+INFO:[2024-03-04 16:56:18,764]:root: R^2 Score: 0.5375386242893272
+INFO:[2024-03-04 16:56:18,772]:root: Next Day Predictions for Section 5:
+INFO:[2024-03-04 16:56:18,772]:root: Hour: 0, Prediction: 102.87
+INFO:[2024-03-04 16:56:18,772]:root: Hour: 1, Prediction: 98.13
+INFO:[2024-03-04 16:56:18,773]:root: Hour: 2, Prediction: 88.52
+INFO:[2024-03-04 16:56:18,773]:root: Hour: 3, Prediction: 67.86
+INFO:[2024-03-04 16:56:18,773]:root: Hour: 4, Prediction: 57.31
+INFO:[2024-03-04 16:56:18,774]:root: Hour: 5, Prediction: 53.42
+INFO:[2024-03-04 16:56:18,774]:root: Hour: 6, Prediction: 55.57
+INFO:[2024-03-04 16:56:18,774]:root: Hour: 7, Prediction: 63.39
+INFO:[2024-03-04 16:56:18,774]:root: Hour: 8, Prediction: 84.73
+INFO:[2024-03-04 16:56:18,774]:root: Hour: 9, Prediction: 146.78
+INFO:[2024-03-04 16:56:18,774]:root: Hour: 10, Prediction: 212.88
+INFO:[2024-03-04 16:56:18,775]:root: Hour: 11, Prediction: 220.6
+INFO:[2024-03-04 16:56:18,775]:root: Hour: 12, Prediction: 373.53
+INFO:[2024-03-04 16:56:18,775]:root: Hour: 13, Prediction: 366.96
+INFO:[2024-03-04 16:56:18,775]:root: Hour: 14, Prediction: 389.89
+INFO:[2024-03-04 16:56:18,775]:root: Hour: 15, Prediction: 371.7
+INFO:[2024-03-04 16:56:18,776]:root: Hour: 16, Prediction: 324.62
+INFO:[2024-03-04 16:56:18,776]:root: Hour: 17, Prediction: 316.64
+INFO:[2024-03-04 16:56:18,776]:root: Hour: 18, Prediction: 317.1
+INFO:[2024-03-04 16:56:18,776]:root: Hour: 19, Prediction: 326.98
+INFO:[2024-03-04 16:56:18,776]:root: Hour: 20, Prediction: 332.4
+INFO:[2024-03-04 16:56:18,776]:root: Hour: 21, Prediction: 317.13
+INFO:[2024-03-04 16:56:18,777]:root: Hour: 22, Prediction: 259.8
+INFO:[2024-03-04 16:56:18,777]:root: Hour: 23, Prediction: 227.89
+ERROR:[2024-03-04 16:56:18,997]:root: Failed to post predictions for Section 5 to API. Status code: 404
+INFO:[2024-03-04 16:56:19,219]:root: Occupancy data fetched successfully.
+INFO:[2024-03-04 16:56:19,220]:root: Fetched Data for Section 6:
+INFO:[2024-03-04 16:56:19,221]:root:                        date  average_occupancy_count
+0  2024-02-26T20:00:00.000Z                      208
+1  2024-02-26T21:00:00.000Z                      186
+2  2024-02-26T22:00:00.000Z                      133
+3  2024-02-26T23:00:00.000Z                       94
+4  2024-02-27T00:00:00.000Z                       67
+INFO:[2024-03-04 16:56:19,228]:root: 
+INFO:[2024-03-04 16:56:19,368]:root: Root Mean Squared Error: 29.751380920331524
+INFO:[2024-03-04 16:56:19,368]:root: R^2 Score: 0.7994316522418693
+INFO:[2024-03-04 16:56:19,376]:root: Next Day Predictions for Section 6:
+INFO:[2024-03-04 16:56:19,377]:root: Hour: 0, Prediction: 65.96
+INFO:[2024-03-04 16:56:19,377]:root: Hour: 1, Prediction: 53.32
+INFO:[2024-03-04 16:56:19,377]:root: Hour: 2, Prediction: 37.34
+INFO:[2024-03-04 16:56:19,378]:root: Hour: 3, Prediction: 34.18
+INFO:[2024-03-04 16:56:19,378]:root: Hour: 4, Prediction: 34.12
+INFO:[2024-03-04 16:56:19,378]:root: Hour: 5, Prediction: 35.34
+INFO:[2024-03-04 16:56:19,378]:root: Hour: 6, Prediction: 36.35
+INFO:[2024-03-04 16:56:19,378]:root: Hour: 7, Prediction: 41.94
+INFO:[2024-03-04 16:56:19,378]:root: Hour: 8, Prediction: 67.1
+INFO:[2024-03-04 16:56:19,379]:root: Hour: 9, Prediction: 126.69
+INFO:[2024-03-04 16:56:19,379]:root: Hour: 10, Prediction: 171.94
+INFO:[2024-03-04 16:56:19,379]:root: Hour: 11, Prediction: 195.01
+INFO:[2024-03-04 16:56:19,379]:root: Hour: 12, Prediction: 210.58
+INFO:[2024-03-04 16:56:19,379]:root: Hour: 13, Prediction: 199.73
+INFO:[2024-03-04 16:56:19,379]:root: Hour: 14, Prediction: 169.9
+INFO:[2024-03-04 16:56:19,380]:root: Hour: 15, Prediction: 188.95
+INFO:[2024-03-04 16:56:19,380]:root: Hour: 16, Prediction: 204.66
+INFO:[2024-03-04 16:56:19,380]:root: Hour: 17, Prediction: 223.24
+INFO:[2024-03-04 16:56:19,380]:root: Hour: 18, Prediction: 209.13
+INFO:[2024-03-04 16:56:19,380]:root: Hour: 19, Prediction: 290.76
+INFO:[2024-03-04 16:56:19,380]:root: Hour: 20, Prediction: 201.61
+INFO:[2024-03-04 16:56:19,380]:root: Hour: 21, Prediction: 142.76
+INFO:[2024-03-04 16:56:19,380]:root: Hour: 22, Prediction: 146.0
+INFO:[2024-03-04 16:56:19,382]:root: Hour: 23, Prediction: 102.07
+ERROR:[2024-03-04 16:56:19,601]:root: Failed to post predictions for Section 6 to API. Status code: 404

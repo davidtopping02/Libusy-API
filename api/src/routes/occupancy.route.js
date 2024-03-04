@@ -64,28 +64,31 @@ router.get('/sections/:sectionId/time-period', [
 
 
 // Route adding a new occupancyData record
-router.post('/add',
+router.post('/predictions/add',
     apiKeyAuthMiddleware,
     [
-        body('sensor_id').notEmpty().withMessage('sensor_id is required').custom(async (value, { req }) => {
-            const exists = await sensorData.doesSensorExist(value);
-            if (!exists) {
-                throw new Error('Sensor not found');
-            }
-            return true; // Validation passed if the sensor exists
-        }),
-        body('occupancy_count').isInt().withMessage('occupancy_count must be an integer'),
+        body('section_id').notEmpty().withMessage('section_id is required').isInt().withMessage('section_id must be an integer'),
+        body('predictions').isArray().withMessage('predictions must be an array').notEmpty().withMessage('predictions array cannot be empty')
     ], helper.validate, async (req, res, next) => {
 
         try {
-            const { sensor_id, occupancy_count } = req.body;
-            const data = await occupancyData.addOccupancyData(sensor_id, occupancy_count)
-            res.json(data);
+            const { section_id, predictions } = req.body;
+
+            const result = await occupancyData.updateOccupancyPredictions(section_id, predictions);
+
+            if (result.success) {
+                res.status(200).json({ message: 'Predictions added successfully.' });
+            } else {
+                res.status(500).json({ error: result.error });
+            }
         } catch (err) {
-            console.error(`Error while adding occupancy data`, err.message);
+            console.error(`Error while adding predictions`, err.message);
             next(err);
         }
-
     });
 
 module.exports = router;
+
+
+module.exports = router;
+

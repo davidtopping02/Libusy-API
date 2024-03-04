@@ -35,8 +35,13 @@ class TotalOccupancyManager:
             current_time = datetime.now()
             current_date = current_time.date()
 
+            # check if it's between 23:00 and 00:00
+            if current_time.hour >= 23 or current_time.hour < 0:
+                # add predition in here (must happen async)
+                pass
+
             # check if it's the designated time for calibration and not already calibrated for the day
-            if self.last_calibration_date != current_date and 4 <= current_time.hour < 5:
+            if self.last_calibration_date != current_date and (current_time.hour >= 4 and current_time.hour < 5):
                 self.total_occupancy_calibration()
                 self.last_calibration_date = current_date
 
@@ -44,9 +49,7 @@ class TotalOccupancyManager:
             data = self.api.fetch_gate_data()
 
             if data:
-                # Parse the response and update total occupancy
                 net_change = self.api.parse_response(data)
                 self.api.update_total_occupancy(net_change)
             else:
-                # Log an error if the data fetched from the library gates is empty
                 logging.error("Data was empty from the library gates")
