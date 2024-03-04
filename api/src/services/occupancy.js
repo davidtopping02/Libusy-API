@@ -159,31 +159,38 @@ async function getOccupancyDataBySectionAndTimePeriod(sectionId, startDate, endD
 }
 
 async function updateOccupancyPredictions(sectionId, predictions) {
-    const dataToUpdate = predictions.map(prediction => [
-        prediction.timestamp,
-        prediction.occupancy_count
-    ]);
-
-    const placeholders = dataToUpdate.map(() => '(?,?,?)').join(',');
-    const values = dataToUpdate.flat();
-
-    const query = `
-        INSERT INTO occupancyPrediction (section_id, prediction_datetime, predicted_occupancy)
-        VALUES ${placeholders}
-        ON DUPLICATE KEY UPDATE predicted_occupancy = VALUES(predicted_occupancy);
-    `;
+    const queryPromises = predictions.map(async prediction => {
+        const { timestamp, occupancy_count } = prediction;
+        const query = `
+            INSERT INTO occupancyPrediction (section_id, prediction_datetime, predicted_occupancy)
+            VALUES (?, ?, ?)
+            ON DUPLICATE KEY UPDATE predicted_occupancy = VALUES(predicted_occupancy);
+        `;
+        const values = [sectionId, timestamp, occupancy_count];
+        try {
+            await db.query(query, values);
+            console.log(`Occupancy prediction updated for Section ${sectionId} at ${timestamp}.`);
+            return true;
+        } catch (error) {
+            console.error(`Error updating occupancy prediction for Section ${sectionId} at ${timestamp}:`, error);
+            return false;
+        }
+    });
 
     try {
-        await db.query(query, values);
-        console.log('Occupancy predictions updated successfully.');
-        return { success: true };
+        const results = await Promise.all(queryPromises);
+        if (results.every(result => result)) {
+            console.log('All occupancy predictions updated successfully.');
+            return { success: true };
+        } else {
+            console.error('Some occupancy predictions failed to update.');
+            return { success: false, error: 'Some occupancy predictions failed to update.' };
+        }
     } catch (error) {
         console.error('Error updating occupancy predictions:', error);
         return { success: false, error: 'Failed to update occupancy predictions.' };
     }
 }
-
-
 
 
 
