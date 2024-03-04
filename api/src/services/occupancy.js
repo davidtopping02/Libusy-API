@@ -159,15 +159,13 @@ async function getOccupancyDataBySectionAndTimePeriod(sectionId, startDate, endD
 }
 
 async function updateOccupancyPredictions(sectionId, predictions) {
-
-    const dataToInsertOrUpdate = predictions.map(prediction => [
-        sectionId,
+    const dataToUpdate = predictions.map(prediction => [
         prediction.timestamp,
         prediction.occupancy_count
     ]);
 
-    const placeholders = dataToInsertOrUpdate.map(() => '(?,?,?)').join(',');
-    const values = dataToInsertOrUpdate.flat();
+    const placeholders = dataToUpdate.map(() => '(?,?,?)').join(',');
+    const values = dataToUpdate.flat();
 
     const query = `
         INSERT INTO occupancyPrediction (section_id, prediction_datetime, predicted_occupancy)
@@ -184,6 +182,8 @@ async function updateOccupancyPredictions(sectionId, predictions) {
         return { success: false, error: 'Failed to update occupancy predictions.' };
     }
 }
+
+
 
 
 

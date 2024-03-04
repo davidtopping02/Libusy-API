@@ -2,16 +2,21 @@ import logging
 import time
 from datetime import datetime, timedelta
 from services.library_gates_api import LibraryGateAPI
+from occupancy_prediction_manager import OccpancyPredictionManager
+import threading
 
 
 class TotalOccupancyManager:
     def __init__(self, api_url, username, password):
-        self.api = LibraryGateAPI(username, password, api_url)
+        self.lib_gates_api = LibraryGateAPI(username, password, api_url)
+        self.occupancy_prediction_manager = OccpancyPredictionManager(api_url)
         self.last_calibration_date = None
+        self.last_prediction_date = None  # Date to track when predictions were last made
 
     def total_occupancy_calibration(self):
-        self.api.update_total_occupancy(self.api.get_total_base(), True)
-        logging.info("total occupancy calibrated")
+        self.lib_gates_api.update_total_occupancy(
+            self.lib_gates_api.get_total_base(), True)
+        logging.info("Total occupancy calibrated")
 
     def calculate_next_run(self):
         # calculate the time until the next scheduled run, at x:17 and x:47
@@ -37,8 +42,9 @@ class TotalOccupancyManager:
 
             # check if it's between 23:00 and 00:00
             if current_time.hour >= 23 or current_time.hour < 0:
-                # add predition in here (must happen async)
-                pass
+                if self.last_prediction_date != current_date:  # Ensure predictions happen only once per day
+                    threading.Thread(
+                        target=self.run_predictions).start()
 
             # check if it's the designated time for calibration and not already calibrated for the day
             if self.last_calibration_date != current_date and (current_time.hour >= 4 and current_time.hour < 5):
@@ -46,10 +52,15 @@ class TotalOccupancyManager:
                 self.last_calibration_date = current_date
 
             # fetch data from the library gates API
-            data = self.api.fetch_gate_data()
+            data = self.lib_gates_api.fetch_gate_data()
 
             if data:
-                net_change = self.api.parse_response(data)
-                self.api.update_total_occupancy(net_change)
+                net_change = self.lib_gates_api.parse_response(data)
+                self.lib_gates_api.update_total_occupancy(net_change)
             else:
                 logging.error("Data was empty from the library gates")
+
+    def run_predictions(self):
+        self.occupancy_prediction_manager.run()
+        # Update last prediction date to today
+        self.last_prediction_date = datetime.now().date()
