@@ -130,10 +130,39 @@ async function getOccupancySummaryData() {
 }
 
 
+async function getOccupancyDataBySectionAndTimePeriod(sectionId, startDate, endDate) {
+    if (!startDate || !endDate || !sectionId) {
+        return { error: 'startDate, endDate, and sectionId are required and must be valid.' };
+    }
+
+    // Query to select occupancy summary data for a specific section within a specified date range
+    const query = `
+        SELECT date, average_occupancy_count
+        FROM uodLibraryOccupancy.occupancySummary
+        WHERE section_id = ?
+        AND date BETWEEN ? AND ?
+        ORDER BY date ASC;
+    `;
+
+    const rows = await db.query(query, [sectionId, startDate, endDate]);
+
+    // Utilize the helper function to check for empty results and format the response
+    const occupancyData = helper.emptyOrRows(rows);
+
+    // Transform the data to include section_id once and nest the occupancy data
+    const transformedData = {
+        section_id: sectionId,
+        occupancy_data: occupancyData
+    };
+
+    return transformedData;
+}
+
 
 module.exports = {
     getOccupancyData,
     getOccupancyDataBySection,
     addOccupancyData,
-    getOccupancySummaryData
+    getOccupancySummaryData,
+    getOccupancyDataBySectionAndTimePeriod
 }
