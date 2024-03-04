@@ -14,9 +14,15 @@ class OccpancyPredictionManager:
         self.model = RandomForestRegressor()
 
     def fetch_data(self, section_id, start_date, end_date):
-        # fetching data from the API for a specific section within a time period
+        # Fetch data from the API for a specific section within a time period
         data = self.occupancy_api.get_occupancy_data_by_time_period(
             section_id, start_date, end_date)
+
+        if data is None:
+            logging.error(
+                f"No data fetched for Section {section_id} between {start_date} and {end_date}")
+            return None
+
         occupancy_data = data.get('occupancy_data', [])
         df = pd.DataFrame(occupancy_data)
 
@@ -51,11 +57,11 @@ class OccpancyPredictionManager:
 
         # evaluating the model on the testing set
         y_pred = self.model.predict(X_test)
-        rmse = mean_squared_error(y_test, y_pred, squared=False)
+        rmse = mean_squared_error(y_test, y_pred)
         r2 = r2_score(y_test, y_pred)
 
         # logging the evaluation metrics
-        logging.info(f"Root Mean Squared Error: {rmse}")
+        logging.info(f"Root Mean Squared Error: {rmse**0.5}")
         logging.info(f"R^2 Score: {r2}")
 
     def predict_next_day_occupancy(self):
@@ -70,7 +76,7 @@ class OccpancyPredictionManager:
         return next_day_predictions_with_time
 
     def run(self):
-        sections = [1, 2, 3, 4, 5, 6]
+        sections = [2, 3, 4, 5, 6]
 
         for section_id in sections:
             # calculating start and end dates for the last month

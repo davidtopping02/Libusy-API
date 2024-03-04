@@ -47,7 +47,7 @@ def main():
     password = 'UO33mUx3zEKb%S8b'
 
     # IP address might be for local network access
-    # api_url = 'http://10.8.0.1:80'
+    # api_url = 'http://10.8.0.1:80/api'
 
     # For Docker use
     api_url = 'http://uod-lib-occupancy-api:80/api'

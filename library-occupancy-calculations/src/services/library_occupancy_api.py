@@ -57,7 +57,7 @@ class LibraryOccupancyAPI:
 
     def post_predictions(self, section_id, predictions):
         headers = {'X-API-Key': self.api_key}
-        url = f"{self.api_url}/occupancy/predictions"
+        url = f"{self.api_url}/occupancy/predictions/add"
 
         # Prepare data for API post request
         data_to_post = {
