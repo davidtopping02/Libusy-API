@@ -62,6 +62,31 @@ router.get('/sections/:sectionId/time-period', [
     }
 });
 
+// Route adding a new occupancyData record
+router.post('/add',
+    apiKeyAuthMiddleware,
+    [
+        body('sensor_id').notEmpty().withMessage('sensor_id is required').custom(async (value, { req }) => {
+            const exists = await sensorData.doesSensorExist(value);
+            if (!exists) {
+                throw new Error('Sensor not found');
+            }
+            return true; // Validation passed if the sensor exists
+        }),
+        body('occupancy_count').isInt().withMessage('occupancy_count must be an integer'),
+    ], helper.validate, async (req, res, next) => {
+
+        try {
+            const { sensor_id, occupancy_count } = req.body;
+            const data = await occupancyData.addOccupancyData(sensor_id, occupancy_count)
+            res.json(data);
+        } catch (err) {
+            console.error(`Error while adding occupancy data`, err.message);
+            next(err);
+        }
+
+    });
+
 
 // Route adding a new occupancyData record
 router.post('/predictions/add',
