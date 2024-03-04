@@ -35,12 +35,17 @@ class TotalOccupancyManager:
             current_time = datetime.now()
             current_date = current_time.date()
 
-            # check if it's the designated time for calibration and not already calibrated for the day
-            if self.last_calibration_date != current_date and 4 <= current_time.hour < 5:
+            # Check if it's between 23:00 and 12:00
+            if current_time.hour >= 23 or current_time.hour < 0:
+                # Add your additional logic here
+                pass
+
+            # Check if it's the designated time for calibration and not already calibrated for the day
+            if self.last_calibration_date != current_date and (current_time.hour >= 4 and current_time.hour < 5):
                 self.total_occupancy_calibration()
                 self.last_calibration_date = current_date
 
-            # fetch data from the library gates API
+            # Fetch data from the library gates API
             data = self.api.fetch_gate_data()
 
             if data:

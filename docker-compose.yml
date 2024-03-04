@@ -28,14 +28,14 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     container_name: uod-lib-occupancy-nginx
 
-  total-occupancy:
-    build: ./total-library-occupancy
+  library-occupancy-calculations:
+    build: ./library-occupancy-calculations
     restart: always
     networks:
       - backend
-    container_name: uod-lib-total-occupancy
+    container_name: uod-lib-occupancy-calcs
     volumes:
-      - ./total-library-occupancy:/usr/src/app
+      - ./library-occupancy-calculations:/usr/src/app
 
   mysql:
     image: mysql
