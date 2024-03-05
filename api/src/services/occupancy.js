@@ -90,13 +90,13 @@ async function getOccupancySummaryData() {
         // Fetch predictive occupancy data for the next 9 hours based on the current hour
         const predictiveOccupancy = await db.query(`
             SELECT 
-                DATE_FORMAT(prediction_datetime, '%H:00') AS hour, 
+                DATE_FORMAT(prediction_time, '%H:00') AS hour, 
                 ROUND((predicted_occupancy / ? * 100)) AS occupancy_percentage
             FROM uodLibraryOccupancy.occupancyPrediction
             WHERE section_id = ? 
-                AND prediction_datetime >= NOW()
-                AND prediction_datetime <= DATE_ADD(NOW(), INTERVAL 9 HOUR)
-            ORDER BY prediction_datetime ASC;
+                AND prediction_time >= NOW() + INTERVAL 0 HOUR
+                AND prediction_time <= NOW() + INTERVAL 9 HOUR
+            ORDER BY prediction_time ASC;
         `, [section.total_occupancy, section.section_id]);
 
         // Append predictive data
@@ -118,6 +118,7 @@ async function getOccupancySummaryData() {
 
     return responseData;
 }
+
 
 
 
