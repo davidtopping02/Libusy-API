@@ -44,7 +44,12 @@ async function addOccupancyData(sensor_id, occupancy_count) {
 
 async function getOccupancySummaryData() {
     // Fetch sections data including the current occupancy percentage
-    const sections = await db.query(`SELECT section_id, description, total_occupancy, ROUND(occupancy_percentage) AS current_occupancy_percentage FROM uodLibraryOccupancy.section;`);
+    const sections = await db.query(`
+        SELECT 
+            section_id, description, total_occupancy, 
+            ROUND(occupancy_percentage) AS current_occupancy_percentage 
+        FROM uodLibraryOccupancy.section;
+    `);
     const sectionsData = helper.emptyOrRows(sections);
 
     // Prepare the response data structure
@@ -54,29 +59,25 @@ async function getOccupancySummaryData() {
     const fetchTime = new Date().toISOString();
 
     for (const section of sectionsData) {
-
         let hoursData = [];
 
-        if (section.section_id !== 1) {
-            // Fetch past occupancy data for the last 2 hours excluding the current hour
-            const pastOccupancy = await db.query(`
-                SELECT 
-                    DATE_FORMAT(DATE_SUB(date, INTERVAL 0 HOUR), '%H:00') AS hour, 
-                    ROUND((average_occupancy_count / ? * 100)) AS occupancy_percentage
-                FROM uodLibraryOccupancy.occupancySummary
-                WHERE section_id = ? 
-                    AND date >= DATE_SUB(NOW(), INTERVAL 3 HOUR) -- Adjusted interval to go 2 hours back
-                    AND date < DATE_SUB(NOW(), INTERVAL 1 HOUR)  -- Adjusted interval to end 1 hour ago
-                ORDER BY date ASC;
-            `, [section.total_occupancy, section.section_id]);
+        // Fetch past occupancy data for the last 2 hours excluding the current hour
+        const pastOccupancy = await db.query(`
+            SELECT 
+                DATE_FORMAT(DATE_SUB(date, INTERVAL 0 HOUR), '%H:00') AS hour, 
+                ROUND((average_occupancy_count / ? * 100)) AS occupancy_percentage
+            FROM uodLibraryOccupancy.occupancySummary
+            WHERE section_id = ? 
+                AND date >= DATE_SUB(NOW(), INTERVAL 3 HOUR) -- Adjusted interval to go 2 hours back
+                AND date < DATE_SUB(NOW(), INTERVAL 1 HOUR)  -- Adjusted interval to end 1 hour ago
+            ORDER BY date ASC;
+        `, [section.total_occupancy, section.section_id]);
 
-            // Append past occupancy data
-            hoursData.push(...pastOccupancy.map(item => ({
-                time: item.hour,
-                occupancy_percentage: parseFloat(item.occupancy_percentage.toFixed(2))
-            })));
-        }
-
+        // Append past occupancy data
+        hoursData.push(...pastOccupancy.map(item => ({
+            time: item.hour,
+            occupancy_percentage: parseFloat(item.occupancy_percentage.toFixed(2))
+        })));
 
         // Fetch and append current hour occupancy percentage directly from the section table
         const currentHour = new Date();
@@ -86,27 +87,16 @@ async function getOccupancySummaryData() {
             occupancy_percentage: section.current_occupancy_percentage
         });
 
-        // For section_id 1, we only need the current hour's occupancy, so skip fetching past and predictive occupancy
-        if (section.section_id === 1) {
-            // Construct the section data object
-            responseData.data.push({
-                section_id: section.section_id,
-                description: section.description,
-                hours: hoursData
-            });
-            continue; // Skip the rest of the loop for this section
-        }
-
-        // Fetch predictive occupancy data for the next 9 hours based on the same hour a week ago
+        // Fetch predictive occupancy data for the next 9 hours based on the current hour
         const predictiveOccupancy = await db.query(`
-        SELECT 
-            DATE_FORMAT(DATE_ADD(date, INTERVAL 1 WEEK), '%H:00') AS hour, 
-            ROUND((average_occupancy_count / ? * 100)) AS occupancy_percentage
-        FROM uodLibraryOccupancy.occupancySummary
-        WHERE section_id = ? AND 
-          date > DATE_ADD(NOW(), INTERVAL 0 HOUR) - INTERVAL 1 WEEK AND 
-          date <= DATE_ADD(NOW(), INTERVAL 9 HOUR) - INTERVAL 1 WEEK
-        ORDER BY date ASC;
+            SELECT 
+                DATE_FORMAT(prediction_datetime, '%H:00') AS hour, 
+                ROUND((predicted_occupancy / ? * 100)) AS occupancy_percentage
+            FROM uodLibraryOccupancy.occupancyPrediction
+            WHERE section_id = ? 
+                AND prediction_datetime >= NOW()
+                AND prediction_datetime <= DATE_ADD(NOW(), INTERVAL 9 HOUR)
+            ORDER BY prediction_datetime ASC;
         `, [section.total_occupancy, section.section_id]);
 
         // Append predictive data
@@ -128,6 +118,7 @@ async function getOccupancySummaryData() {
 
     return responseData;
 }
+
 
 
 async function getOccupancyDataBySectionAndTimePeriod(sectionId, startDate, endDate) {
@@ -160,19 +151,19 @@ async function getOccupancyDataBySectionAndTimePeriod(sectionId, startDate, endD
 
 async function updateOccupancyPredictions(sectionId, predictions) {
     const queryPromises = predictions.map(async prediction => {
-        const { timestamp, occupancy_count } = prediction;
+        const { prediction_time, predicted_occupancy } = prediction;
         const query = `
-            INSERT INTO occupancyPrediction (section_id, prediction_datetime, predicted_occupancy)
+            INSERT INTO occupancyPrediction (section_id, prediction_time, predicted_occupancy)
             VALUES (?, ?, ?)
-            ON DUPLICATE KEY UPDATE predicted_occupancy = VALUES(predicted_occupancy);
+            ON DUPLICATE KEY UPDATE predicted_occupancy = ?;
         `;
-        const values = [sectionId, timestamp, occupancy_count];
+        const values = [sectionId, prediction_time, predicted_occupancy, predicted_occupancy];
         try {
             await db.query(query, values);
-            console.log(`Occupancy prediction updated for Section ${sectionId} at ${timestamp}.`);
+            console.log(`Occupancy prediction updated for Section ${sectionId} at ${prediction_time}.`);
             return true;
         } catch (error) {
-            console.error(`Error updating occupancy prediction for Section ${sectionId} at ${timestamp}:`, error);
+            console.error(`Error updating occupancy prediction for Section ${sectionId} at ${prediction_time}:`, error);
             return false;
         }
     });
@@ -191,6 +182,8 @@ async function updateOccupancyPredictions(sectionId, predictions) {
         return { success: false, error: 'Failed to update occupancy predictions.' };
     }
 }
+
+
 
 
 
