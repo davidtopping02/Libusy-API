@@ -65,13 +65,12 @@ class LibraryOccupancyAPI:
             "predictions": []
         }
 
-        # Convert predictions to the correct timestamp format for MySQL
+        # Convert predictions to the correct time format for MySQL
         for hour, prediction in predictions:
-            timestamp = datetime.now().replace(
-                hour=hour, minute=0, second=0, microsecond=0).isoformat()
+            time_str = f"{hour}:00:00"  # Construct time string HH:00:00
             data_to_post["predictions"].append({
-                "timestamp": timestamp,
-                "occupancy_count": prediction
+                "prediction_time": time_str,
+                "predicted_occupancy": prediction
             })
 
         # Post predictions to the API
