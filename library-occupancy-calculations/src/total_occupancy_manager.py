@@ -45,6 +45,7 @@ class TotalOccupancyManager:
                 if self.last_prediction_date != current_date:  # Ensure predictions happen only once per day
                     threading.Thread(
                         target=self.run_predictions).start()
+                    self.last_prediction_date = current_date
 
             # check if it's the designated time for calibration and not already calibrated for the day
             if self.last_calibration_date != current_date and (current_time.hour >= 4 and current_time.hour < 5):
