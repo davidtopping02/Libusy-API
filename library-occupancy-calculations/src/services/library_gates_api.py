@@ -36,8 +36,8 @@ class LibraryGateAPI:
         logging.info("parsing library gate data")
         in_count = sum(1 for entry in data if entry.get(
             'EventType') == 'Valid_Access' and 'IN' in entry.get('SourceEntityDescription'))
-        out_count = sum(1 for entry in data if entry.get(
-            'EventType') == 'OUT' in entry.get('SourceEntityDescription'))
+        out_count = sum(1 for entry in data if 'OUT' in entry.get(
+            'SourceEntityDescription'))
         return in_count - out_count
 
     def update_total_occupancy(self, net_change, calibration=False):
