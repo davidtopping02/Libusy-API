@@ -44,8 +44,7 @@ class TotalOccupancyManager:
                 self.total_occupancy_calibration()
                 self.last_prediction_date = current_date
 
-            # check if it's between 23:00 and 00:00
-            if self.last_prediction_date != current_date and current_time.hour >= 23 and current_time.hour < 00:
+            if self.last_prediction_date != current_date and current_time.hour == 23:
                 threading.Thread(target=self.run_predictions).start()
                 self.last_prediction_date = current_date
 
