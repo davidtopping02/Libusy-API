@@ -7,92 +7,114 @@ async function getOccupancySummaryData() {
         const responseData = await prepareResponseData(sections);
         return responseData;
     } catch (error) {
+        console.error(error);
         throw error;
     }
 }
 
 async function fetchSectionsData() {
-    try {
-        const sections = await db.query(`
-            SELECT 
-                section_id, description, total_occupancy, 
-                ROUND(occupancy_percentage) AS current_occupancy_percentage 
-            FROM uodLibraryOccupancy.section;
-        `);
-        return helper.emptyOrRows(sections);
-    } catch (error) {
-        throw error;
-    }
+    const sections = await db.query(`
+        SELECT 
+            section_id, description, total_occupancy, 
+            ROUND(occupancy_percentage) AS current_occupancy_percentage 
+        FROM uodLibraryOccupancy.section;
+    `);
+    return helper.emptyOrRows(sections);
 }
 
 async function prepareResponseData(sectionsData) {
-    try {
-        const responseData = { data: [] };
-        const fetchTime = new Date().toISOString();
 
-        for (const section of sectionsData) {
-            const hoursData = await fetchHourlyData(section);
-            responseData.data.push({
-                section_id: section.section_id,
-                description: section.description,
-                hours: hoursData
-            });
+    const responseData = { data: [], fetch_time: new Date().toISOString() };
+
+    for (const section of sectionsData) {
+        let summary;
+
+        if (section.section_id !== 1) {
+            summary = await fetchWeeklyData(section);
         }
+        if (summary !== undefined) {
+            responseData.data.push({ ...section, occupancy: summary });
+        } else {
+            responseData.data.push({ ...section });
+        }
+    }
+    return responseData;
+}
 
-        responseData.fetch_time = fetchTime;
-        return responseData;
+function calculateLastOccurrenceDate(day) {
+    const today = new Date();
+    const todayDayOfWeek = today.getDay(); // Sunday - 0, Monday - 1, ..., Saturday - 6
+    const daysToLastOccurrence = todayDayOfWeek >= day ? todayDayOfWeek - day : 7 - (day - todayDayOfWeek);
+
+    today.setDate(today.getDate() - daysToLastOccurrence);
+    return today;
+}
+
+async function fetchLastWeekSameDayData(section, date) {
+    try {
+        const formattedDate = date.toISOString().split('T')[0]; // Format date to 'YYYY-MM-DD'
+
+        const query = `
+            SELECT 
+                HOUR(date) AS hour, 
+                ROUND((average_occupancy_count / total_occupancy * 100), 2) AS occupancy_percentage
+            FROM occupancySummary
+            INNER JOIN section ON occupancySummary.section_id = section.section_id
+            WHERE occupancySummary.section_id = ?
+            AND DATE(date) = ?
+            ORDER BY date ASC;
+        `;
+
+        const results = await db.query(query, [section.section_id, formattedDate]);
+
+        return results.map(item => ({
+            time: `${item.hour}:00`,
+            occupancy_percentage: parseInt(item.occupancy_percentage, 10)
+        }));
     } catch (error) {
+        console.error(error);
         throw error;
     }
 }
 
-async function fetchHourlyData(section) {
-    try {
-        const hoursData = [];
-        let pastOccupancy, predictiveOccupancy;
+async function fetchWeeklyData(section) {
+    const promises = Array.from({ length: 7 }, (_, day) => fetchDailyData(day, section));
+    return Promise.all(promises);
+}
 
-        if (section.section_id !== 1) {
-            pastOccupancy = await fetchPastOccupancy(section);
-            predictiveOccupancy = await fetchPredictiveOccupancy(section);
-        }
-
-        const currentOccupancy = getCurrentHourOccupancy(section);
-
-        if (pastOccupancy) {
-            hoursData.push(...pastOccupancy);
-        }
-
-        hoursData.push(currentOccupancy);
-
-        if (predictiveOccupancy) {
-            hoursData.push(...predictiveOccupancy);
-        }
-
-        return hoursData;
-    } catch (error) {
-        throw error;
+async function fetchDailyData(day, section) {
+    if (day === getCurrentDayOfWeek()) {
+        return await getCurrentDayData(section);
+    } else {
+        const lastOccurrenceDate = calculateLastOccurrenceDate(day);
+        return await fetchLastWeekSameDayData(section, lastOccurrenceDate);
     }
+}
+
+async function getCurrentDayData(section) {
+    const [pastOccupancy, predictiveOccupancy] = await Promise.all([
+        fetchPastOccupancy(section),
+        fetchPredictiveOccupancy(section)
+    ]);
+    const currentOccupancy = getCurrentHourOccupancy(section);
+    return [...(pastOccupancy || []), currentOccupancy, ...(predictiveOccupancy || [])];
 }
 
 async function fetchPastOccupancy(section) {
-    try {
-        const pastOccupancy = await db.query(`
-            SELECT 
-                DATE_FORMAT(DATE_SUB(date, INTERVAL 0 HOUR), '%H:00') AS hour, 
-                ROUND((average_occupancy_count / ? * 100)) AS occupancy_percentage
-            FROM uodLibraryOccupancy.occupancySummary
-            WHERE section_id = ? 
-                AND date >= DATE_SUB(NOW(), INTERVAL 3 HOUR)
-                AND date < DATE_SUB(NOW(), INTERVAL 1 HOUR)
-            ORDER BY date ASC;
-        `, [section.total_occupancy, section.section_id]);
-        return pastOccupancy.map(item => ({
-            time: item.hour,
-            occupancy_percentage: parseFloat(item.occupancy_percentage.toFixed(2))
-        }));
-    } catch (error) {
-        throw error;
-    }
+    const pastOccupancy = await db.query(`
+        SELECT 
+            DATE_FORMAT(DATE_SUB(date, INTERVAL 0 HOUR), '%H:00') AS hour, 
+            ROUND((average_occupancy_count / ? * 100)) AS occupancy_percentage
+        FROM uodLibraryOccupancy.occupancySummary
+        WHERE section_id = ? 
+            AND date >= DATE_SUB(NOW(), INTERVAL 3 HOUR)
+            AND date < DATE_SUB(NOW(), INTERVAL 1 HOUR)
+        ORDER BY date ASC;
+    `, [section.total_occupancy, section.section_id]);
+    return pastOccupancy.map(item => ({
+        time: item.hour,
+        occupancy_percentage: parseFloat(item.occupancy_percentage.toFixed(2))
+    }));
 }
 
 function getCurrentHourOccupancy(section) {
@@ -105,24 +127,24 @@ function getCurrentHourOccupancy(section) {
 }
 
 async function fetchPredictiveOccupancy(section) {
-    try {
-        const predictiveOccupancy = await db.query(`
-            SELECT 
-                DATE_FORMAT(prediction_time, '%H:00') AS hour, 
-                ROUND((predicted_occupancy / ? * 100)) AS occupancy_percentage
-            FROM uodLibraryOccupancy.occupancyPrediction
-            WHERE section_id = ? 
-                AND prediction_time >= NOW() + INTERVAL 0 HOUR
-                AND prediction_time <= NOW() + INTERVAL 9 HOUR
-            ORDER BY prediction_time ASC;
-        `, [section.total_occupancy, section.section_id]);
-        return predictiveOccupancy.map(item => ({
-            time: item.hour,
-            occupancy_percentage: parseFloat(item.occupancy_percentage.toFixed(2))
-        }));
-    } catch (error) {
-        throw error;
-    }
+    const predictiveOccupancy = await db.query(`
+        SELECT 
+            DATE_FORMAT(prediction_time, '%H:00') AS hour, 
+            ROUND((predicted_occupancy / ? * 100)) AS occupancy_percentage
+        FROM uodLibraryOccupancy.occupancyPrediction
+        WHERE section_id = ? 
+            AND prediction_time >= NOW() + INTERVAL 0 HOUR
+            AND prediction_time <= NOW() + INTERVAL 9 HOUR
+        ORDER BY prediction_time ASC;
+    `, [section.total_occupancy, section.section_id]);
+    return predictiveOccupancy.map(item => ({
+        time: item.hour,
+        occupancy_percentage: parseFloat(item.occupancy_percentage.toFixed(2))
+    }));
+}
+
+function getCurrentDayOfWeek() {
+    return new Date().getDay();
 }
 
 module.exports = {
