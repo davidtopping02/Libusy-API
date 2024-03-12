@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require('cors');
+// const cors = require('cors');
 
 const config = {
     name: 'uod-library-occupancy-api',
@@ -10,19 +10,19 @@ const config = {
 const app = express();
 
 // Define allowed origins
-const allowedOrigins = ['', 'https://www.uod.davidtopping.dev', 'http://localhost:4200'];
+// const allowedOrigins = ['', 'https://www.uod.davidtopping.dev', 'http://localhost:4200'];
 
 // CORS middleware configuration
-app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin) return callback(null, true); // Allow requests with no origin
-        if (allowedOrigins.indexOf(origin) !== -1) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    }
-}));
+// app.use(cors({
+//     origin: function (origin, callback) {
+//         if (!origin) return callback(null, true); // Allow requests with no origin
+//         if (allowedOrigins.indexOf(origin) !== -1) {
+//             callback(null, true);
+//         } else {
+//             callback(new Error('Not allowed by CORS'));
+//         }
+//     }
+// }));
 
 // middleware for parsing JSON and URL-encoded data
 app.use(express.json());
