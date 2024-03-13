@@ -102,20 +102,25 @@ async function getCurrentDayData(section) {
 
 async function fetchPastOccupancy(section) {
     const pastOccupancy = await db.query(`
-        SELECT 
-            DATE_FORMAT(DATE_SUB(date, INTERVAL 0 HOUR), '%H:00') AS hour, 
-            ROUND((average_occupancy_count / ? * 100)) AS occupancy_percentage
-        FROM uodLibraryOccupancy.occupancySummary
-        WHERE section_id = ? 
-            AND date >= DATE_SUB(NOW(), INTERVAL 3 HOUR)
-            AND date < DATE_SUB(NOW(), INTERVAL 1 HOUR)
-        ORDER BY date ASC;
+      SELECT 
+        DATE_FORMAT(date, '%H:00') AS hour, 
+        ROUND((average_occupancy_count / ? * 100)) AS occupancy_percentage
+      FROM 
+        uodLibraryOccupancy.occupancySummary
+      WHERE 
+        section_id = ? 
+        AND date >= CURDATE() 
+        AND date < NOW()
+      ORDER BY 
+        date ASC;
     `, [section.total_occupancy, section.section_id]);
+    
     return pastOccupancy.map(item => ({
-        time: item.hour,
-        occupancy_percentage: parseFloat(item.occupancy_percentage.toFixed(2))
+      time: item.hour,
+      occupancy_percentage: parseFloat(item.occupancy_percentage.toFixed(2))
     }));
-}
+  }
+  
 
 function getCurrentHourOccupancy(section) {
     const currentHour = new Date();
