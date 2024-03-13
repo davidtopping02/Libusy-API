@@ -136,17 +136,21 @@ async function fetchPredictiveOccupancy(section) {
         SELECT 
             DATE_FORMAT(prediction_time, '%H:00') AS hour, 
             ROUND((predicted_occupancy / ? * 100)) AS occupancy_percentage
-        FROM uodLibraryOccupancy.occupancyPrediction
-        WHERE section_id = ? 
-            AND prediction_time >= NOW() + INTERVAL 0 HOUR
-            AND prediction_time <= NOW() + INTERVAL 9 HOUR
-        ORDER BY prediction_time ASC;
+        FROM 
+            uodLibraryOccupancy.occupancyPrediction
+        WHERE 
+            section_id = ? 
+            AND prediction_time >= NOW()
+            AND prediction_time < CURDATE() + INTERVAL 1 DAY 
+        ORDER BY 
+            prediction_time ASC;
     `, [section.total_occupancy, section.section_id]);
     return predictiveOccupancy.map(item => ({
         time: item.hour,
         occupancy_percentage: parseFloat(item.occupancy_percentage.toFixed(2))
     }));
 }
+
 
 function getCurrentDayOfWeek() {
     return new Date().getDay();
