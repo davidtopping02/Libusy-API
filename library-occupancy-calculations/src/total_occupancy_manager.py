@@ -42,7 +42,7 @@ class TotalOccupancyManager:
 
             if self.last_calibration_date != current_date and (current_time.hour >= 4 and current_time.hour < 5):
                 self.total_occupancy_calibration()
-                self.last_prediction_date = current_date
+                self.last_calibration_date = current_date
 
             if self.last_prediction_date != current_date and current_time.hour == 23:
                 threading.Thread(target=self.run_predictions).start()
