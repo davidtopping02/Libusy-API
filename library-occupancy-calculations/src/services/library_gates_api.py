@@ -35,10 +35,11 @@ class LibraryGateAPI:
         # parse fetched library gate data to calculate net change in occupancy
         logging.info("parsing library gate data")
         in_count = sum(1 for entry in data if entry.get(
-            'EventType') == 'Valid_Access' and 'IN' in entry.get('SourceEntityDescription'))
-        out_count = sum(1 for entry in data if 'OUT' in entry.get(
-            'SourceEntityDescription'))
-        return in_count - out_count
+            'EventType') == 'Valid_Access' and 'IN' in entry.get('SourceEntityDescription', '').upper())
+        out_count = sum(1 for entry in data if entry.get(
+            'EventType') == 'Valid_Access' and 'OUT' in entry.get('SourceEntityDescription', '').upper())
+        net_change = in_count - out_count
+        return net_change
 
     def update_total_occupancy(self, net_change, calibration=False):
         # update total occupancy based on the calculated net change
