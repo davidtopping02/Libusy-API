@@ -11,11 +11,10 @@ const config = {
 
 const app = express();
 
-
-// // Define allowed origins
+// Define allowed origins
 // const allowedOrigins = ['', 'https://www.uod.davidtopping.dev', 'http://localhost:4200'];
 
-// // CORS middleware configuration
+// CORS middleware configuration
 // app.use(cors({
 //     origin: function (origin, callback) {
 //         if (!origin) return callback(null, true); // Allow requests with no origin
