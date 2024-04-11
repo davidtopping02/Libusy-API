@@ -1,5 +1,10 @@
 const express = require("express");
 // const cors = require('cors');
+<<<<<<< Updated upstream
+=======
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+>>>>>>> Stashed changes
 
 const config = {
     name: 'uod-library-occupancy-api',
@@ -9,10 +14,17 @@ const config = {
 
 const app = express();
 
+<<<<<<< Updated upstream
 // Define allowed origins
 // const allowedOrigins = ['', 'https://www.uod.davidtopping.dev', 'http://localhost:4200'];
 
 // CORS middleware configuration
+=======
+// // Define allowed origins
+// const allowedOrigins = ['', 'https://www.uod.davidtopping.dev', 'http://localhost:4200'];
+
+// // CORS middleware configuration
+>>>>>>> Stashed changes
 // app.use(cors({
 //     origin: function (origin, callback) {
 //         if (!origin) return callback(null, true); // Allow requests with no origin
