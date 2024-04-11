@@ -55,7 +55,7 @@ const swaggerOptions = {
             description: 'The University of Dundee Library Occupancy API provides access to real-time and historical occupancy data for various sections within the library. Developed using Node.js Express, this RESTful API interacts with a MySQL database to retrieve, add, and update occupancy records.',
         },
     },
-    apis: ['./api/src/routes/*.js'],
+    apis: ['./routes/*.js'],
 };
 
 // Initialize Swagger-jsdoc
