@@ -11,7 +11,6 @@ services:
       - "80:80"
     volumes:
       - ./api/src:/usr/src/app
-      - /usr/src/app/node_modules
     container_name: uod-lib-occupancy-api
 
   nginx:
