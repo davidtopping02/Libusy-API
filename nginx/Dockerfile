@@ -1,4 +1,4 @@
-# Use the official Nginx image as a parent image
+# the official Nginx image as a parent image
 FROM nginx:alpine
 
 # Copy the Nginx configuration file to the container

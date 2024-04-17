@@ -11,7 +11,7 @@ class TotalOccupancyManager:
         self.lib_gates_api = LibraryGateAPI(username, password, api_url)
         self.occupancy_prediction_manager = OccpancyPredictionManager(api_url)
         self.last_calibration_date = None
-        self.last_prediction_date = None  # Date to track when predictions were last made
+        self.last_prediction_date = None
 
     def total_occupancy_calibration(self):
         self.lib_gates_api.update_total_occupancy(
