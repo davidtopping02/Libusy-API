@@ -60,10 +60,10 @@ async function getOccupancyDataBySectionAndTimePeriod(sectionId, startDate, endD
 
     const rows = await db.query(query, [sectionId, startDate, endDate]);
 
-    // Utilize the helper function to check for empty results and format the response
+    // use the helper function to check for empty results and format the response
     const occupancyData = helper.emptyOrRows(rows);
 
-    // Transform the data to include section_id once and nest the occupancy data
+    // tranform the data to include section_id once and nest the occupancy data
     const transformedData = {
         section_id: sectionId,
         occupancy_data: occupancyData

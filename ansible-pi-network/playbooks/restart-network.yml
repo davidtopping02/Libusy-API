@@ -1,7 +1,7 @@
 ---
 - name: Restart All Hosts in Inventory
   hosts: all
-  become: yes  # Necessary for reboot privileges
+  become: yes
   tasks:
     - name: Reboot the host
       ansible.builtin.reboot:
