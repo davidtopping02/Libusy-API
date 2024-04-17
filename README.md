@@ -1,4 +1,4 @@
-# University of Dundee Library Occupancy Tracker Backend
+# UOD Li-Busy Backend
 This repository contains the backend components for the University of Dundee Library Occupancy Tracker project. The backend is responsible for handling the occupancy data collected from the Raspberry Pi sensors and the library turnstile gates, performing calculations, and exposing the data through a REST API.
 
 ## Table of Contents
