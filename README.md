@@ -5,8 +5,6 @@ This repository contains the backend components for the University of Dundee Lib
 - [Getting Started](#getting-started)
 - [Repository Structure](#repository-structure)
 - [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Getting Started
 To get a local copy of the project up and running, follow these steps:
