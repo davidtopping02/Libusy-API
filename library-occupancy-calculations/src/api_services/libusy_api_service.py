@@ -2,11 +2,20 @@ from datetime import datetime
 import requests
 import logging
 
+libusy_api_service_instance = None
 
-class LibraryOccupancyAPI:
-    def __init__(self, api_url):
+
+class LibusyApiService:
+    def __init__(self, api_url, api_key):
         self.api_url = api_url
-        self.api_key = "9e4a2455-2cba-4c0f-8f2e-a68a54151f12"
+        self.api_key = api_key
+
+    def set_instance(self):
+        global libusy_api_service_instance
+        libusy_api_service_instance = self
+
+    def get_instance(self):
+        return libusy_api_service_instance
 
     def get_total_occupancy(self):
         # fetch total occupancy from the API
@@ -28,6 +37,9 @@ class LibraryOccupancyAPI:
             return 0
 
     def update_total_occupancy(self, total_occupancy):
+
+        logging.info("Updating total occupancy to: " + str(total_occupancy))
+
         # Update total occupancy to the API
         headers = {'X-API-Key': self.api_key}
         payload = {
@@ -36,8 +48,12 @@ class LibraryOccupancyAPI:
 
         response = requests.post(
             f"{self.api_url}/occupancy/add", json=payload, headers=headers)
+
         if response.status_code != 200:
             logging.error("Failed to update total occupancy to API.")
+        else:
+            logging.info(
+                "Total occupancy was successfully posted to the API.")
 
     def get_occupancy_data_by_time_period(self, section_id, start_date, end_date):
         url = f"{self.api_url}/occupancy/sections/{section_id}/time-period"
@@ -85,3 +101,16 @@ class LibraryOccupancyAPI:
     def get_total_base(self):
         # TODO: Implement API endpoint to fetch total base occupancy
         return 0
+
+
+# Initialise and set instance
+
+libusy_api_key = '9e4a2455-2cba-4c0f-8f2e-a68a54151f12'
+# For Docker use
+libusy_api_url = 'http://uod-lib-occupancy-api:80/api'
+# For local dev
+# libusy_api_url = 'http://10.8.0.1:80/api'
+
+
+libusy_api_service = LibusyApiService(libusy_api_url, libusy_api_key)
+libusy_api_service.set_instance()

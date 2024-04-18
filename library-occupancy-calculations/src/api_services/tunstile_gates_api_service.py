@@ -1,16 +1,22 @@
-import logging
 from datetime import datetime, timedelta
 import requests
+import logging
 
-from services.library_occupancy_api import LibraryOccupancyAPI
+turnstile_gates_api_service_instance = None
 
 
-class LibraryGateAPI:
-    def __init__(self, username, password, api_url):
+class TurnstileGatesApiService:
+    def __init__(self, username, password):
         self.username = username
         self.password = password
         self.base_url = 'https://librarygateapi.dundee.ac.uk/librarygatedataapi/api/data'
-        self.occupancy_api = LibraryOccupancyAPI(api_url)
+
+    def set_instance(self):
+        global turnstile_gates_api_service_instance
+        turnstile_gates_api_service_instance = self
+
+    def get_instance(self):
+        return turnstile_gates_api_service_instance
 
     def fetch_gate_data(self):
         # fetch data from the library gate API for the past 30 minutes
@@ -31,7 +37,7 @@ class LibraryGateAPI:
                 f"failed to fetch library gate data from the API: {response.status_code}")
             return None
 
-    def parse_response(self, data):
+    def get_net_change(self, data):
         # parse fetched library gate data to calculate net change in occupancy
         logging.info("parsing library gate data")
         in_count = sum(1 for entry in data if entry.get(
@@ -41,16 +47,12 @@ class LibraryGateAPI:
         net_change = in_count - out_count
         return net_change
 
-    def update_total_occupancy(self, net_change, calibration=False):
-        # update total occupancy based on the calculated net change
-        if calibration == False:
-            current_occupancy = self.occupancy_api.get_total_occupancy()
-            new_occupancy = current_occupancy + net_change
-            self.occupancy_api.update_total_occupancy(new_occupancy)
-            logging.info(f"Total occupancy updated. Net change: {net_change}")
-        else:
-            self.occupancy_api.update_total_occupancy(net_change)
-            logging.info(f"Total occupancy reset reset to: {net_change}")
 
-    def get_total_base(self):
-        return 0
+# Initialise instance
+tunstile_gate_api_username = 'dtopping'
+tunstile_gate_api_password = 'UO33mUx3zEKb%S8b'
+turnstile_gates_api_service = TurnstileGatesApiService(
+    tunstile_gate_api_username, tunstile_gate_api_password)
+
+# Set instances
+turnstile_gates_api_service.set_instance()

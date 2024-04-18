@@ -1,21 +1,20 @@
 from datetime import datetime, timedelta
+import time
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 import logging
-
-from services.library_occupancy_api import LibraryOccupancyAPI
+from api_services.libusy_api_service import libusy_api_service
 
 
 class OccpancyPredictionManager:
-    def __init__(self, api_url):
-        self.occupancy_api = LibraryOccupancyAPI(api_url)
+    def __init__(self):
         self.model = RandomForestRegressor()
 
     def fetch_data(self, section_id, start_date, end_date):
         # Fetch data from the API for a specific section within a time period
-        data = self.occupancy_api.get_occupancy_data_by_time_period(
+        data = libusy_api_service.get_occupancy_data_by_time_period(
             section_id, start_date, end_date)
 
         if data is None:
@@ -75,7 +74,7 @@ class OccpancyPredictionManager:
 
         return next_day_predictions_with_time
 
-    def run(self):
+    def run_random_forest_predictions(self):
         sections = [2, 3, 4, 5, 6]
 
         for section_id in sections:
@@ -96,5 +95,36 @@ class OccpancyPredictionManager:
                 logging.info(f"Hour: {hour}, Prediction: {prediction}")
 
             # posting predictions to the API
-            self.occupancy_api.post_predictions(
+            libusy_api_service.post_predictions(
                 section_id, next_day_predictions)
+
+    def calculate_next_run_time(self):
+        # Get the current time
+        now = datetime.now()
+
+        # Calculate the next scheduled run time for random forest predictions at 11:55 PM
+        next_run_time = now.replace(
+            hour=23, minute=55, second=0, microsecond=0)
+
+        # If the current time is past the scheduled time, schedule it for tomorrow
+        if now >= next_run_time:
+            next_run_time += timedelta(days=1)
+
+        # Calculate the time until the next run
+        time_until_next_run = (next_run_time - now).total_seconds()
+
+        return next_run_time, time_until_next_run
+
+    def run_periodically(self):
+        while True:
+            # Calculate the next run time and the time to sleep until then
+            next_run_time, sleep_time = self.calculate_next_run_time()
+
+            logging.info(
+                f"Sleeping for {sleep_time} seconds until the next predictions at {next_run_time}.")
+
+            # Sleep until the next run time
+            time.sleep(sleep_time)
+
+            # Run the random forest predictions
+            self.run_random_forest_predictions()
