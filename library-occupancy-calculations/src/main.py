@@ -14,9 +14,8 @@ def configure_logging():
 
 
 def main():
-    print("STARTED")
     configure_logging()
-
+    logging.info("STARTED LI-BUSY OCCUPANCY CALCULATIONS")
     occupancy_calculations = OccupancyCalculationManager()
     occupancy_calculations.run_calculations()
 
