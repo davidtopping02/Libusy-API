@@ -54,6 +54,7 @@ class TotalOccupancyManager:
 
                 net_difference = current_occupancy + net_change
 
+                logging.info("Net change is: " + str(net_change))
                 logging.info("Net difference is: " + str(net_difference))
 
                 libusy_api_service.update_total_occupancy(net_difference)
