@@ -55,8 +55,6 @@ services:
     ports:
       - "3307:3306" # remove this for prod
     container_name: uod-lib-occupancy-mysql
-    entrypoint: >
-      /bin/sh -c "echo 'Europe/London' > /etc/timezone && /etc/init.d/mysql restart"
 
 networks:
   backend:
