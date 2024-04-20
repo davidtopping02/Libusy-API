@@ -42,11 +42,11 @@ services:
     networks:
       - backend
     environment:
-      - TZ=Europe/London
       - MYSQL_ROOT_PASSWORD=u0Dl1brary_
       - MYSQL_DATABASE=uodLibraryOccupancy
     volumes:
       - occupancy-tracker-mysql-data:/var/lib/mysql
+      - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     ports:
       - "3307:3306"
     container_name: uod-lib-occupancy-mysql
