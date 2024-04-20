@@ -44,7 +44,7 @@ services:
       - TZ=Europe/London
 
   mysql:
-    image: mysql
+    build: ./mysql
     networks:
       - backend
     environment:
