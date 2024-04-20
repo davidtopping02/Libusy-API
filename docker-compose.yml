@@ -46,9 +46,8 @@ services:
       - MYSQL_DATABASE=uodLibraryOccupancy
     volumes:
       - occupancy-tracker-mysql-data:/var/lib/mysql
-      - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     ports:
-      - "3307:3306"
+      - "3307:3306" # remove this for prod
     container_name: uod-lib-occupancy-mysql
 
 networks:
