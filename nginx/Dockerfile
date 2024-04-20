@@ -1,4 +1,5 @@
 # the official Nginx image as a parent image
+ARG TZ
 FROM nginx:alpine
 
 # Copy the Nginx configuration file to the container

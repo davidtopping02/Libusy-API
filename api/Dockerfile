@@ -1,4 +1,5 @@
 # use an official Node runtime as a parent image
+ARG TZ
 FROM node:14
 
 # set the working directory in the container
