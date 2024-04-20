@@ -38,7 +38,7 @@ services:
       - ./library-occupancy-calculations:/usr/src/app
 
   mysql:
-    image: mysql:8.3.0 # Changed to MySQL 8.3.0
+    build: ./mysql # Specify the path to the directory containing the Dockerfile
     networks:
       - backend
     environment:
