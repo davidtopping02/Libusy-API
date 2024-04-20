@@ -57,3 +57,6 @@ networks:
 volumes:
   occupancy-tracker-mysql-data:
     external: true
+
+environment:
+  - TZ=Europe/London
