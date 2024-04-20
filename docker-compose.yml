@@ -38,7 +38,9 @@ services:
       - ./library-occupancy-calculations:/usr/src/app
 
   mysql:
-    build: ./mysql # Specify the path to the directory containing the Dockerfile
+    build:
+      context: ./mysql # Specify the path to the directory containing the Dockerfile
+      dockerfile: Dockerfile # Name of the Dockerfile if it's not named 'Dockerfile' by default
     networks:
       - backend
     environment:
