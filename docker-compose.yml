@@ -1,7 +1,10 @@
 version: "3"
 services:
   api:
-    build: ./api/
+    build:
+      context: ./api/
+      args:
+        - TZ=Europe/London
     restart: always
     depends_on:
       - mysql
@@ -15,7 +18,10 @@ services:
     container_name: uod-lib-occupancy-api
 
   nginx:
-    build: ./nginx
+    build:
+      context: ./nginx
+      args:
+        - TZ=Europe/London
     ports:
       - "443:443"
     depends_on:
@@ -29,7 +35,10 @@ services:
     container_name: uod-lib-occupancy-nginx
 
   library-occupancy-calculations:
-    build: ./library-occupancy-calculations
+    build:
+      context: ./library-occupancy-calculations
+      args:
+        - TZ=Europe/London
     restart: always
     networks:
       - backend
@@ -42,6 +51,7 @@ services:
     networks:
       - backend
     environment:
+      - TZ=Europe/London
       - MYSQL_ROOT_PASSWORD=u0Dl1brary_
       - MYSQL_DATABASE=uodLibraryOccupancy
     volumes:
