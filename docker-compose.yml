@@ -13,8 +13,6 @@ services:
       - ./api/src:/usr/src/app
       - /usr/src/app/node_modules
     container_name: uod-lib-occupancy-api
-    environment:
-      - TZ=Europe/London
 
   nginx:
     build: ./nginx
@@ -29,8 +27,6 @@ services:
       - /etc/letsencrypt/live/uod.davidtopping.dev/privkey.pem:/etc/ssl/privkey.pem
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     container_name: uod-lib-occupancy-nginx
-    environment:
-      - TZ=Europe/London
 
   library-occupancy-calculations:
     build: ./library-occupancy-calculations
@@ -40,11 +36,9 @@ services:
     container_name: uod-lib-occupancy-calcs
     volumes:
       - ./library-occupancy-calculations:/usr/src/app
-    environment:
-      - TZ=Europe/London
 
   mysql:
-    build: ./mysql
+    image: mysql
     networks:
       - backend
     environment:
