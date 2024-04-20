@@ -38,16 +38,14 @@ services:
       - ./library-occupancy-calculations:/usr/src/app
 
   mysql:
-    build:
-      context: ./mysql
-      dockerfile: Dockerfile
+    image: mysql:8.3
     networks:
       - backend
     environment:
       - MYSQL_ROOT_PASSWORD=u0Dl1brary_
       - MYSQL_DATABASE=uodLibraryOccupancy
     volumes:
-      - occupancy-tracker-mysql-data:/var/lib/mysql
+      - mysql-recovered-data:/var/lib/mysql
     ports:
       - "3307:3306"
     container_name: uod-lib-occupancy-mysql
@@ -57,5 +55,5 @@ networks:
     driver: bridge
 
 volumes:
-  occupancy-tracker-mysql-data:
+  mysql-recovered-data:
     external: true
