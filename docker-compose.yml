@@ -47,7 +47,7 @@ services:
     volumes:
       - occupancy-tracker-mysql-data:/var/lib/mysql
     ports:
-      - "3307:3306" # remove this for prod
+      - "3307:3306"
     container_name: uod-lib-occupancy-mysql
 
 networks:
@@ -57,6 +57,3 @@ networks:
 volumes:
   occupancy-tracker-mysql-data:
     external: true
-
-environment:
-  - TZ=Europe/London
