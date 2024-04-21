@@ -23,6 +23,7 @@ uod-lib-occupancy-backend/
 ├── ansible-pi-network/
 ├── api/
 ├── library-occupancy-calculations/
+├── mysql-database
 ├── nginx/
 ├── .gitignore
 ├── docker-compose.yml
@@ -33,6 +34,7 @@ uod-lib-occupancy-backend/
 - `ansible-pi-network`: Ansible playbooks for managing the network of Raspberry Pi sensors.
 - `api`: Contains the code for the Node.js Express REST API that exposes the occupancy data.
 - `library-occupancy-calculations`: Python scripts for calculating the total library occupancy and predicting future occupancy levels.
+- `mysql-database`: SQL files for recreating the database. Contains all the data prior to 21/04/2024.
 - `nginx`: Configuration files for the Nginx web server.
 - `.gitignore`: Lists the files and directories that should be ignored by Git.
 - `docker-compose.yml`: Docker Compose configuration file for managing the backend services.
