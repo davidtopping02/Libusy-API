@@ -23,7 +23,7 @@ uod-lib-occupancy-backend/
 ├── ansible-pi-network/
 ├── api/
 ├── library-occupancy-calculations/
-├── mysql-database
+├── mysql-database/
 ├── nginx/
 ├── .gitignore
 ├── docker-compose.yml
