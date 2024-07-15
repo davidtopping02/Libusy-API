@@ -1,30 +1,14 @@
 const express = require("express");
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
-// const cors = require('cors');
 
 const config = {
     name: 'uod-library-occupancy-api',
-    port: 80,
+    port: process.env.PORT || 8080,
     host: '0.0.0.0'
 }
 
 const app = express();
-
-// Define allowed origins
-// const allowedOrigins = ['', 'https://www.uod.davidtopping.dev', 'http://localhost:4200'];
-
-// CORS middleware configuration
-// app.use(cors({
-//     origin: function (origin, callback) {
-//         if (!origin) return callback(null, true); // Allow requests with no origin
-//         if (allowedOrigins.indexOf(origin) !== -1) {
-//             callback(null, true);
-//         } else {
-//             callback(new Error('Not allowed by CORS'));
-//         }
-//     }
-// }));
 
 // middleware for parsing JSON and URL-encoded data
 app.use(express.json());

@@ -6,15 +6,18 @@ FROM node:14
 WORKDIR /usr/src/app
 
 # copy package.json and package-lock.json 
-COPY src/package*.json ./
+COPY api/src/package*.json ./
 
 # install any needed packages specified in package.json
 RUN npm install
 
 # Bundle app source inside the Docker image
-COPY src/ .
+COPY api/src/ .
 
-# binds to port 443,  the port available outside the container
-EXPOSE 80 
+# Use the PORT environment variable in your server code
+ENV PORT 8080
+
+# binds to port 8080, the port available outside the container
+EXPOSE 8080 
 
 CMD ["npm", "run", "dev"]
