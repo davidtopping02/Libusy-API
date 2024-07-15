@@ -1,0 +1,37 @@
+options:
+  logging: "CLOUD_LOGGING_ONLY"
+  default_logs_bucket_behavior: "REGIONAL_USER_OWNED_BUCKET"
+
+steps:
+  # Build the Docker image
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "build"
+      - "-t"
+      - "gcr.io/uod-libusy/github.com/davidtopping02/express-api:$COMMIT_SHA"
+      - "-f"
+      - "Dockerfile"
+      - "."
+
+  # Push the image to Google Container Registry
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "push"
+      - "gcr.io/uod-libusy/github.com/davidtopping02/express-api:$COMMIT_SHA"
+
+  # Deploy the image to Cloud Run
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: "gcloud"
+    args:
+      - "run"
+      - "deploy"
+      - "express-api"
+      - "--image"
+      - "gcr.io/uod-libusy/github.com/davidtopping02/express-api:$COMMIT_SHA"
+      - "--region"
+      - "us-central1"
+      - "--platform"
+      - "managed"
+      - "--allow-unauthenticated"
+
+timeout: "1600s"
