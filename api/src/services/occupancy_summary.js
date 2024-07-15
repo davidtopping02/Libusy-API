@@ -1,29 +1,35 @@
-const db = require('./db');
-const helper = require('../helper');
+function generateBellCurveOccupancy(hour) {
+    const mean = 12; // peak at midday
+    const variance = 16; // spread of the curve
+    const exponent = -Math.pow(hour - mean, 2) / (2 * variance);
+    const occupancyPercentage = Math.round(100 * Math.exp(exponent));
+    return occupancyPercentage;
+}
 
-
-function generateHourlyData(startDate) {
+function generateHourlyData(startDate, currentHour) {
     const hourlyData = [];
     for (let hour = 0; hour < 24; hour++) {
-        const time = new Date(startDate.getTime() + hour * 60 * 60 * 1000).toISOString();
-        const occupancyPercentage = Math.floor(Math.random() * 61) + 40; // Random occupancy between 40% and 100%
+        const date = new Date(startDate.getTime() + hour * 60 * 60 * 1000);
+        const time = date.toISOString().split('T')[0] + 'T' + date.toTimeString().slice(0, 5) + ':00Z';
+        const occupancyPercentage = generateBellCurveOccupancy(hour);
         hourlyData.push({ time, occupancy_percentage: occupancyPercentage });
     }
     return hourlyData;
 }
 
 function generateSectionData(sectionId, description, startDate) {
+    const currentHour = new Date().getHours();
     const sectionData = {
         section_id: sectionId,
         description: description,
-        total_occupancy: Math.floor(Math.random() * 101) + 100, // Random total occupancy between 100 and 200
-        current_occupancy_percentage: Math.floor(Math.random() * 61) + 40, // Random current occupancy percentage between 40% and 100%
+        total_occupancy: 150, // Fixed total occupancy for simplicity
+        current_occupancy_percentage: generateBellCurveOccupancy(currentHour), // Dynamic current occupancy based on current hour
         occupancy: []
     };
     
     for (let day = 0; day < 7; day++) {
         const dailyDate = new Date(startDate.getTime() + day * 24 * 60 * 60 * 1000);
-        sectionData.occupancy.push(generateHourlyData(dailyDate));
+        sectionData.occupancy.push(generateHourlyData(dailyDate, currentHour));
     }
     
     return sectionData;
@@ -67,9 +73,3 @@ async function getOccupancySummaryData() {
 }
 
 module.exports = { getOccupancySummaryData };
-
-
-
-module.exports = {
-    getOccupancySummaryData
-};
