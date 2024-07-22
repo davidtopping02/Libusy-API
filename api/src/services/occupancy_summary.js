@@ -54,11 +54,11 @@ function generateOccupancyState() {
     const data = [];
     
     const sections = [
-        { id: 1, description: "Section A" },
-        { id: 2, description: "Section B" },
-        { id: 3, description: "Section C" },
-        { id: 4, description: "Section D" },
-        { id: 5, description: "Section E" }
+        { id: 1, description: "Ground Floor: Group Study" },
+        { id: 2, description: "First Floor: Group Study" },
+        { id: 3, description: "First Floor: Quiet Study" },
+        { id: 4, description: "Second Floor: Group Study" },
+        { id: 5, description: "Second Floor: Silent Study" }
     ];
     
     for (const section of sections) {
